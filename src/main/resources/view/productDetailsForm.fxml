@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="productsWindow" prefHeight="495.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ProductDetailsFormController">
+    <children>
+        <Text layoutX="37.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify" wrappingWidth="158.24601026399273">
+            <font>
+                <Font name="Apple LiGothic Medium" size="54.0" />
+            </font>
+            <fill>
+                <RadialGradient centerX="0.4113573407202216" centerY="0.9418052256532066" radius="0.869942196531792">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.08552631735801697" green="0.15789473056793213" blue="0.1361842155456543" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.2565789520740509" green="0.7105262875556946" blue="0.6348684430122375" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </RadialGradient>
+            </fill>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Text>
+        <Text layoutX="94.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branderd Wear" wrappingWidth="75.60421181185234">
+            <font>
+                <Font name="Apple LiGothic Medium" size="11.0" />
+            </font>
+            <fill>
+                <LinearGradient endX="0.3681710213776722" startX="0.6864608076009502" startY="0.6888361045130641">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.2186281681060791" green="0.4868420958518982" blue="0.406377911567688" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.22782650589942932" green="0.44736841320991516" blue="0.41077810525894165" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Text>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#c2cdd71a" height="386.0" layoutX="257.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="482.0" />
+        <Separator layoutX="515.0" layoutY="52.0" prefHeight="18.0" prefWidth="200.0" />
+        <JFXTextField fx:id="txtItemId" cache="true" layoutX="428.0" layoutY="119.0" prefHeight="27.0" prefWidth="155.0" promptText="Item ID" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXTextField fx:id="txtItemName" cache="true" layoutX="312.0" layoutY="161.0" prefHeight="27.0" prefWidth="155.0" promptText="Item Name" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXTextField fx:id="txtQty" cache="true" layoutX="311.0" layoutY="196.0" prefHeight="27.0" prefWidth="155.0" promptText="QTY" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXTextField fx:id="txtCategory" cache="true" layoutX="531.0" layoutY="163.0" prefHeight="27.0" prefWidth="155.0" promptText="Category" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXButton fx:id="btnAdd" layoutX="308.0" layoutY="251.0" onAction="#btnAddOnAction" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Add" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="13.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <TableView fx:id="tblProduct" layoutX="271.0" layoutY="308.0" prefHeight="149.0" prefWidth="453.0">
+            <columns>
+                <TableColumn fx:id="colProductId" prefWidth="69.38449096679688" text="ID" />
+                <TableColumn fx:id="colProductName" prefWidth="92.16567993164062" text="Name" />
+                <TableColumn fx:id="colProductCategory" prefWidth="123.94674682617188" text="Category" />
+                <TableColumn fx:id="colProductQty" prefWidth="69.86468505859375" text="QTY" />
+                <TableColumn fx:id="colProductPrice" prefWidth="96.00006103515625" text="Price" />
+            </columns>
+        </TableView>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#c2cdd71a" height="286.0" layoutX="17.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="220.0" />
+        <JFXButton fx:id="btnManageEmployee" layoutX="41.0" layoutY="167.0" onAction="#btnManageEmployeeOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Manage Employee" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnOrderDetails" layoutX="41.0" layoutY="209.0" onAction="#btnOrderDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Order Details" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnProductDetails" layoutX="41.0" layoutY="251.0" onAction="#btnProductDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Product Details" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnCustomerDetails" layoutX="41.0" layoutY="293.0" onAction="#btnCustomerDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Customer Details" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnSupplierDetails" layoutX="41.0" layoutY="335.0" onAction="#btnSuplierDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Supplier Details" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnPlaceOrder" layoutX="41.0" layoutY="125.0" onAction="#btnPlaceOrderOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Place Order " textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <Text layoutX="460.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MANAGE PRODUCT" textAlignment="CENTER" wrappingWidth="259.623567456174">
+            <font>
+                <Font name="Apple LiGothic Medium" size="28.0" />
+            </font>
+        </Text>
+        <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="109.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-email-100.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="109.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-location-100.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="109.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-phone-100.png" />
+            </image>
+        </ImageView>
+        <Text layoutX="128.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+94 123 456 789" textAlignment="CENTER" wrappingWidth="75.69702169093506">
+            <font>
+                <Font name="Apple LiGothic Medium" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="123.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="customer@clothifystore.com" textAlignment="CENTER" wrappingWidth="119.55877706202881">
+            <font>
+                <Font name="Apple LiGothic Medium" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="122.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panadura, Sri Lanka" textAlignment="CENTER" wrappingWidth="95.55275571968764">
+            <font>
+                <Font name="Apple LiGothic Medium" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="32.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify Store" wrappingWidth="62.141940125837436">
+            <font>
+                <Font name="Apple LiGothic Medium" size="19.0" />
+            </font>
+        </Text>
+        <Text layoutX="58.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(PVT) Ltd." textAlignment="CENTER" wrappingWidth="42.126320091813966">
+            <font>
+                <Font name="Apple LiGothic Medium" size="7.0" />
+            </font>
+        </Text>
+        <Rectangle arcHeight="10.0" arcWidth="10.0" height="52.0" layoutX="103.0" layoutY="420.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1.0" />
+        <JFXButton fx:id="btnClear" layoutX="444.0" layoutY="251.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Clear" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="13.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnAction" layoutX="582.0" layoutY="251.0" onAction="#btnActionOnAction" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Delete" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="13.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXTextField fx:id="txtPrice" cache="true" layoutX="530.0" layoutY="198.0" prefHeight="27.0" prefWidth="155.0" promptText="Price" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <ImageView fitHeight="86.0" fitWidth="47.0" layoutX="696.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-product-64.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

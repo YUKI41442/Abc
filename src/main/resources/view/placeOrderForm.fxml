@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="placeOrderWindow" prefHeight="495.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.PlaceOrderFormController">
+    <children>
+        <Text layoutX="37.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify" wrappingWidth="158.24601026399273">
+            <font>
+                <Font name="Apple LiGothic Medium" size="54.0" />
+            </font>
+            <fill>
+                <RadialGradient centerX="0.4113573407202216" centerY="0.9418052256532066" radius="0.869942196531792">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.08552631735801697" green="0.15789473056793213" blue="0.1361842155456543" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.2565789520740509" green="0.7105262875556946" blue="0.6348684430122375" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </RadialGradient>
+            </fill>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Text>
+        <Text layoutX="94.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branderd Wear" wrappingWidth="75.60421181185234">
+            <font>
+                <Font name="Apple LiGothic Medium" size="11.0" />
+            </font>
+            <fill>
+                <LinearGradient endX="0.3681710213776722" startX="0.6864608076009502" startY="0.6888361045130641">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.2186281681060791" green="0.4868420958518982" blue="0.406377911567688" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.22782650589942932" green="0.44736841320991516" blue="0.41077810525894165" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Text>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#c2cdd71a" height="386.0" layoutX="257.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="482.0" />
+        <Separator layoutX="524.0" layoutY="53.0" prefHeight="18.0" prefWidth="200.0" />
+        <JFXComboBox fx:id="cmbCustomerId" layoutX="313.0" layoutY="138.0" prefHeight="26.0" prefWidth="106.0" promptText="Customer ID">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXComboBox>
+        <JFXTextField fx:id="txtOrderId" cache="true" layoutX="402.0" layoutY="98.0" prefHeight="27.0" prefWidth="155.0" promptText="Order ID" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXTextField fx:id="txtCustomerName" cache="true" layoutX="312.0" layoutY="168.0" prefHeight="27.0" prefWidth="155.0" promptText="Customer Name" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXTextField fx:id="txtCustomerAddress" cache="true" layoutX="311.0" layoutY="200.0" prefHeight="27.0" prefWidth="155.0" promptText="Customer Address" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXTextField fx:id="txtCustomerEmail" cache="true" layoutX="312.0" layoutY="232.0" prefHeight="27.0" prefWidth="155.0" promptText="Customer Email" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXButton fx:id="btnFinalizeOrder" layoutX="605.0" layoutY="274.0" onAction="#btnFinalizeOderOnAction" prefHeight="23.0" prefWidth="87.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Finalize Order" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="13.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXTextField fx:id="txtItemName" cache="true" layoutX="516.0" layoutY="168.0" prefHeight="27.0" prefWidth="155.0" promptText="Item Name" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXTextField fx:id="txtItemQty" cache="true" layoutX="517.0" layoutY="201.0" prefHeight="27.0" prefWidth="155.0" promptText="Quantity" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXTextField fx:id="txtPrice" cache="true" layoutX="517.0" layoutY="232.0" prefHeight="27.0" prefWidth="155.0" promptText="Item Price" unFocusColor="#4d4d4d">
+            <font>
+                <Font name="Apple LiGothic Medium" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </JFXTextField>
+        <JFXComboBox fx:id="cmbItemId" layoutX="517.0" layoutY="139.0" prefHeight="26.0" prefWidth="106.0" promptText="Item ID">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXComboBox>
+        <Text layoutX="309.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount :" textAlignment="CENTER" wrappingWidth="77.52493606039161">
+            <font>
+                <Font name="Apple LiGothic Medium" size="13.0" />
+            </font>
+        </Text>
+        <Text layoutX="459.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cashier :" textAlignment="CENTER" wrappingWidth="58.44717727132911">
+            <font>
+                <Font name="Apple LiGothic Medium" size="13.0" />
+            </font>
+        </Text>
+        <Text fx:id="lblTotal" fill="RED" layoutX="386.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1000" textAlignment="CENTER" wrappingWidth="34.126261075689854">
+            <font>
+                <Font name="Apple LiGothic Medium" size="13.0" />
+            </font>
+        </Text>
+        <Text fx:id="lblCashier" fill="RED" layoutX="514.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ab" textAlignment="CENTER" wrappingWidth="34.126261075689854">
+            <font>
+                <Font name="Apple LiGothic Medium" size="13.0" />
+            </font>
+        </Text>
+        <TableView fx:id="tblCart" layoutX="271.0" layoutY="308.0" prefHeight="149.0" prefWidth="453.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="75.5" text="Item ID" />
+                <TableColumn fx:id="colName" prefWidth="118.5" text="Name" />
+                <TableColumn fx:id="colUnitPrice" prefWidth="95.5" text="Unit Price" />
+                <TableColumn fx:id="colQty" prefWidth="67.5" text="Qty" />
+                <TableColumn fx:id="colTotal" prefWidth="95.0" text="Total" />
+            </columns>
+        </TableView>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#c2cdd71a" height="286.0" layoutX="17.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="220.0" />
+        <JFXButton fx:id="btnManageEmployee" layoutX="41.0" layoutY="167.0" onAction="#btnManageEmployeeOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Manage Employee" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnOrderDetails" layoutX="41.0" layoutY="209.0" onAction="#btnOrderDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Order Details" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnProductDetails" layoutX="41.0" layoutY="251.0" onAction="#btnProductDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Product Details" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnCustomerDetails" layoutX="41.0" layoutY="293.0" onAction="#btnCustomerDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Customer Details" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnSupplierDetails" layoutX="41.0" layoutY="335.0" onAction="#btnSuplierDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Supplier Details" textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="btnPlaceOrder" layoutX="41.0" layoutY="125.0" onAction="#btnPlaceOrderOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Place Order " textFill="WHITE">
+            <font>
+                <Font name="Apple LiGothic Medium" size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <Text layoutX="504.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLACE ORDER" textAlignment="CENTER" wrappingWidth="192.317415112424">
+            <font>
+                <Font name="Apple LiGothic Medium" size="28.0" />
+            </font>
+        </Text>
+        <ImageView fitHeight="41.0" fitWidth="40.0" layoutX="678.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-place-order-96.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="109.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-email-100.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="109.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-location-100.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="109.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-phone-100.png" />
+            </image>
+        </ImageView>
+        <Text layoutX="128.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+94 123 456 789" textAlignment="CENTER" wrappingWidth="75.69702169093506">
+            <font>
+                <Font name="Apple LiGothic Medium" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="123.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="customer@clothifystore.com" textAlignment="CENTER" wrappingWidth="119.55877706202881">
+            <font>
+                <Font name="Apple LiGothic Medium" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="122.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panadura, Sri Lanka" textAlignment="CENTER" wrappingWidth="95.55275571968764">
+            <font>
+                <Font name="Apple LiGothic Medium" size="10.0" />
+            </font>
+        </Text>
+        <Text layoutX="32.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify Store" wrappingWidth="62.141940125837436">
+            <font>
+                <Font name="Apple LiGothic Medium" size="19.0" />
+            </font>
+        </Text>
+        <Text layoutX="58.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(PVT) Ltd." textAlignment="CENTER" wrappingWidth="42.126320091813966">
+            <font>
+                <Font name="Apple LiGothic Medium" size="7.0" />
+            </font>
+        </Text>
+        <Rectangle arcHeight="10.0" arcWidth="10.0" height="52.0" layoutX="103.0" layoutY="420.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1.0" />
+        <Label fx:id="lblDate" layoutX="43.0" layoutY="81.0" text="Label">
+            <font>
+                <Font name="Apple LiGothic Medium" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblTime" layoutX="171.0" layoutY="82.0" text="Label">
+            <font>
+                <Font name="Apple LiGothic Medium" size="14.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

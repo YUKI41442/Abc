@@ -1,2 +1,3 @@
-package org.example.dao;public interface SuperDao {
+package org.example.dao;
+public interface SuperDao {
 }
