@@ -1,23 +1,21 @@
-package org.example.entity;
+package org.example.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 @Getter
-@Entity(name = "customer")
-@Table(name = "customer")
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerEntity {
-    @Id
+public class User {
+
     private String id;
     private String name;
     private String email;
     private String address;
+    private String password;
 }
