@@ -18,6 +18,7 @@ import java.util.Date;
 @Table(name = "order_table")
 public class OrderEntity {
     @Id
+    //FG
     private String id;
     private String cusId;
     private String status;
