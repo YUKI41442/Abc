@@ -12,7 +12,6 @@ public interface CustomerDao {
 
     boolean update(CustomerEntity customerEntity);
 
-    boolean update(CustomerEntity customerEntity);
 
     boolean delete(String id);
 

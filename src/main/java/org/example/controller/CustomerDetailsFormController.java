@@ -5,19 +5,21 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import org.example.bo.BoFactory;
+import org.example.bo.asset.CustomerBo;
+import org.example.model.Customer;
+import org.example.util.BoType;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
-
-public class CustomerDetailsFormController {
+public class CustomerDetailsFormController implements Initializable {
 
     public JFXButton btnSendOtp;
     public JFXTextField txtEmail;
@@ -124,25 +126,36 @@ public class CustomerDetailsFormController {
     @FXML
     void btnAddOnAction(ActionEvent event) {
 
-        String email = txtCustomerEmail.getText();
-        if (customerBo.isValidEmail(email)){
-            Customer customer = new Customer(
-                    currentId,
-                    txtCustomerName.getText(),
-                    email,
-                    txtCustomerAddress.getText()
-            );
+        if (!areTextFieldsEmpty()) {
+            String email = txtCustomerEmail.getText();
+            if (customerBo.isValidEmail(email)){
+                Customer customer = new Customer(
+                        currentId,
+                        txtCustomerName.getText(),
+                        email,
+                        txtCustomerAddress.getText()
+                );
 
-            customerBo.insertCustomer(customer);
+                customerBo.insertCustomer(customer);
 
-            new Alert(Alert.AlertType.INFORMATION, "Customer Added Successfully").show();
+                new Alert(Alert.AlertType.INFORMATION, "Customer Added Successfully").show();
 
-            clearTextFields();
-            loadCustomerId();
-            loadCustomerTbl();
+                clearTextFields();
+                loadCustomerId();
+                loadCustomerTbl();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Invalid Email. Try again...").show();
+            }
         } else {
-            new Alert(Alert.AlertType.ERROR, "Invalid Email. Try again...").show();
+            new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
         }
+    }
+
+    private boolean areTextFieldsEmpty() {
+        return txtCustomerId.getText().isEmpty() &&
+                txtCustomerName.getText().isEmpty() &&
+                txtCustomerEmail.getText().isEmpty() &&
+                txtCustomerAddress.getText().isEmpty();
     }
 
     @FXML
@@ -150,25 +163,6 @@ public class CustomerDetailsFormController {
 
         clearTextFields();
     }
-
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to proceed?");
-        Optional<ButtonType> result = alert.showAndWait();
-        // Check if the response was OK or Cancel
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            if (customerBo.deleteCustomerById(txtCustomerId.getText())) {
-                new Alert(Alert.AlertType.INFORMATION, "Customer Deleted Successfully").show();
-            }else {
-                new Alert(Alert.AlertType.ERROR, "Delete failed. Try again...").show();
-            }
-        }
-        loadCustomerTbl();
-        clearTextFields();
-    }
-
-
 
     private void clearTextFields(){
         txtCustomerName.setText("");
@@ -216,12 +210,4 @@ public class CustomerDetailsFormController {
         sceneSwitch.switchScene(customerWindow,"placeOrderForm.fxml");
     }
 
-    public void btnProductDetailsOnAction(ActionEvent actionEvent) {
-    }
-
-    public void btnCustomerDetailsOnAction(ActionEvent actionEvent) {
-    }
-
-    public void btnSuplierDetailsOnAction(ActionEvent actionEvent) {
-    }
 }

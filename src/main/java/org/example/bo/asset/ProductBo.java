@@ -1,11 +1,10 @@
 package org.example.bo.asset;
 
 import javafx.collections.ObservableList;
+import org.example.bo.SuperBo;
 import org.example.model.Product;
 
-public interface ProductBo {
-    void addProduct(Product product);
-
+public interface ProductBo extends SuperBo {
     void addProduct(Product product);
 
     String generateProductId();
@@ -14,9 +13,11 @@ public interface ProductBo {
 
     Product getProductById(String id);
 
+    boolean deleteProduct(String id);
+
     boolean updateProduct(Product product);
 
-    boolean deleteProduct(String id);
+    boolean updateQtyById(String id, int qty);
 
     ObservableList<String> getAllProductIds();
 }

@@ -1,5 +1,10 @@
 package org.example.bo;
 
+import org.example.bo.asset.impl.*;
+import org.example.util.BoType;
+
+import static org.example.util.BoType.*;
+
 public class BoFactory {
 
     private static BoFactory instance;
@@ -12,16 +17,21 @@ public class BoFactory {
     }
 
     public <T extends SuperBo>T getBo(BoType type){
-        switch (type){
-            case USER:return (T)new UserBoImpl();
-            case CUSTOMER:return (T)new CustomerBoImpl();
-            case PRODUCT:return (T)new ProductBoImpl();
-            case PLACEORDER:return (T)new PlaceOrderBoImpl();
-            case SUPPLIER:return (T)new SupplierBoImpl();
+        if (type.equals(USER)) {
+            return (T) new UserBoImpl();
+        } else if (type.equals(CUSTOMER)) {
+            return (T) new CustomerBoImpl();
+        } else if (type.equals(PRODUCT)) {
+            return (T) new ProductBoImpl();
+        } else if (type.equals(PLACEORDER)) {
+            return (T) new PlaceOrderBoImpl();
+        } else if (type.equals(SUPPLIER)) {
+            return (T) new SupplierBoImpl();
         }
         return null;
     }
 }
+
 
 
 

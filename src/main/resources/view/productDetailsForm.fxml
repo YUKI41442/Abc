@@ -113,8 +113,8 @@
             <columns>
                 <TableColumn fx:id="colProductId" prefWidth="69.38449096679688" text="ID" />
                 <TableColumn fx:id="colProductName" prefWidth="92.16567993164062" text="Name" />
-                <TableColumn fx:id="colProductCategory" prefWidth="123.94674682617188" text="Category" />
-                <TableColumn fx:id="colProductQty" prefWidth="69.86468505859375" text="QTY" />
+                <TableColumn fx:id="colProductQty" prefWidth="87.1470947265625" text="Qty" />
+                <TableColumn fx:id="colProductCategory" prefWidth="106.85296630859375" text="Category" />
                 <TableColumn fx:id="colProductPrice" prefWidth="96.00006103515625" text="Price" />
             </columns>
         </TableView>
@@ -221,7 +221,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton fx:id="btnAction" layoutX="582.0" layoutY="251.0" onAction="#btnActionOnAction" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Delete" textFill="WHITE">
+        <JFXButton fx:id="btnAction" layoutX="582.0" layoutY="251.0" onAction="#btnActionOnAction" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Action" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="13.0" />
             </font>

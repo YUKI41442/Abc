@@ -71,12 +71,12 @@
         </Text>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#c2cdd71a" height="386.0" layoutX="257.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="482.0" />
         <Separator layoutX="524.0" layoutY="53.0" prefHeight="18.0" prefWidth="200.0" />
-        <JFXComboBox fx:id="cmbCustomerId" layoutX="313.0" layoutY="138.0" prefHeight="26.0" prefWidth="106.0" promptText="Customer ID">
+        <JFXComboBox fx:id="cmbCustomerId" layoutX="312.0" layoutY="138.0" onAction="#cmbCustomerIdOnAction" prefHeight="26.0" prefWidth="106.0" promptText="Customer ID">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXComboBox>
-        <JFXTextField fx:id="txtOrderId" cache="true" layoutX="402.0" layoutY="98.0" prefHeight="27.0" prefWidth="155.0" promptText="Order ID" unFocusColor="#4d4d4d">
+        <JFXTextField fx:id="txtOrderId" cache="true" layoutX="312.0" layoutY="104.0" prefHeight="27.0" prefWidth="155.0" promptText="Order ID" unFocusColor="#4d4d4d">
             <font>
                 <Font name="Apple LiGothic Medium" size="15.0" />
             </font>
@@ -108,7 +108,7 @@
                 <Cursor fx:constant="TEXT" />
             </cursor>
         </JFXTextField>
-        <JFXButton fx:id="btnFinalizeOrder" layoutX="605.0" layoutY="274.0" onAction="#btnFinalizeOderOnAction" prefHeight="23.0" prefWidth="87.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Finalize Order" textFill="WHITE">
+        <JFXButton fx:id="btnFinalizeOrder" layoutX="519.0" layoutY="274.0" onAction="#btnFinalizeOderOnAction" prefHeight="23.0" prefWidth="87.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Finalize Order" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="13.0" />
             </font>
@@ -116,7 +116,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXTextField fx:id="txtItemName" cache="true" layoutX="516.0" layoutY="168.0" prefHeight="27.0" prefWidth="155.0" promptText="Item Name" unFocusColor="#4d4d4d">
+        <JFXTextField fx:id="txtItemName" cache="true" layoutX="516.0" layoutY="135.0" prefHeight="27.0" prefWidth="155.0" promptText="Item Name" unFocusColor="#4d4d4d">
             <font>
                 <Font name="Apple LiGothic Medium" size="15.0" />
             </font>
@@ -124,7 +124,7 @@
                 <Cursor fx:constant="TEXT" />
             </cursor>
         </JFXTextField>
-        <JFXTextField fx:id="txtItemQty" cache="true" layoutX="517.0" layoutY="201.0" prefHeight="27.0" prefWidth="155.0" promptText="Quantity" unFocusColor="#4d4d4d">
+        <JFXTextField fx:id="txtAvailableQty" cache="true" layoutX="602.0" layoutY="167.0" prefHeight="20.0" prefWidth="67.0" promptText="QTY" unFocusColor="#4d4d4d">
             <font>
                 <Font name="Apple LiGothic Medium" size="15.0" />
             </font>
@@ -140,27 +140,17 @@
                 <Cursor fx:constant="TEXT" />
             </cursor>
         </JFXTextField>
-        <JFXComboBox fx:id="cmbItemId" layoutX="517.0" layoutY="139.0" prefHeight="26.0" prefWidth="106.0" promptText="Item ID">
+        <JFXComboBox fx:id="cmbItemId" layoutX="516.0" layoutY="105.0" onAction="#cmbItemIdOnAction" prefHeight="26.0" prefWidth="106.0" promptText="Item ID">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXComboBox>
-        <Text layoutX="309.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount :" textAlignment="CENTER" wrappingWidth="77.52493606039161">
+        <Text layoutX="332.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount :" textAlignment="CENTER" wrappingWidth="77.52493606039161">
             <font>
                 <Font name="Apple LiGothic Medium" size="13.0" />
             </font>
         </Text>
-        <Text layoutX="459.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cashier :" textAlignment="CENTER" wrappingWidth="58.44717727132911">
-            <font>
-                <Font name="Apple LiGothic Medium" size="13.0" />
-            </font>
-        </Text>
-        <Text fx:id="lblTotal" fill="RED" layoutX="386.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1000" textAlignment="CENTER" wrappingWidth="34.126261075689854">
-            <font>
-                <Font name="Apple LiGothic Medium" size="13.0" />
-            </font>
-        </Text>
-        <Text fx:id="lblCashier" fill="RED" layoutX="514.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ab" textAlignment="CENTER" wrappingWidth="34.126261075689854">
+        <Text fx:id="lblTotal" fill="RED" layoutX="409.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" textAlignment="CENTER" wrappingWidth="34.126261075689854">
             <font>
                 <Font name="Apple LiGothic Medium" size="13.0" />
             </font>
@@ -183,7 +173,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton fx:id="btnOrderDetails" layoutX="41.0" layoutY="209.0" onAction="#btnOrderDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Order Details" textFill="WHITE">
+        <JFXButton fx:id="btnOrderDetails" layoutX="41.0" layoutY="209.0" onAction="#btnOrderDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Manage Orders" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="17.0" />
             </font>
@@ -191,7 +181,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton fx:id="btnProductDetails" layoutX="41.0" layoutY="251.0" onAction="#btnProductDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Product Details" textFill="WHITE">
+        <JFXButton fx:id="btnProductDetails" layoutX="41.0" layoutY="251.0" onAction="#btnProductDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Manage Products" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="17.0" />
             </font>
@@ -199,7 +189,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton fx:id="btnCustomerDetails" layoutX="41.0" layoutY="293.0" onAction="#btnCustomerDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Customer Details" textFill="WHITE">
+        <JFXButton fx:id="btnCustomerDetails" layoutX="41.0" layoutY="293.0" onAction="#btnCustomerDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Manage Customers" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="17.0" />
             </font>
@@ -207,7 +197,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton fx:id="btnSupplierDetails" layoutX="41.0" layoutY="335.0" onAction="#btnSuplierDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Supplier Details" textFill="WHITE">
+        <JFXButton fx:id="btnSupplierDetails" layoutX="41.0" layoutY="335.0" onAction="#btnSuplierDetailsOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: black; -fx-border-radius: 10;" text="Manage Suppliers" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="17.0" />
             </font>
@@ -284,5 +274,18 @@
                 <Font name="Apple LiGothic Medium" size="14.0" />
             </font>
         </Label>
+      <Label fx:id="lblTime1" layoutX="516.0" layoutY="176.0" text="Available Qty">
+         <font>
+            <Font name="Apple LiGothic Medium" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtItemQty" cache="true" layoutX="516.0" layoutY="198.0" prefHeight="27.0" prefWidth="155.0" promptText="Item Price" unFocusColor="#4d4d4d">
+         <font>
+            <Font name="Apple LiGothic Medium" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
     </children>
 </AnchorPane>

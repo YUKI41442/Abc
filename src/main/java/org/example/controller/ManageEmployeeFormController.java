@@ -12,7 +12,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import org.example.bo.BoFactory;
+import org.example.bo.asset.UserBo;
 import org.example.model.User;
+import org.example.util.BoType;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,66 +25,47 @@ import java.util.ResourceBundle;
 
 public class ManageEmployeeFormController implements Initializable {
 
-    @FXML
-    private JFXButton btnAction;
+    public Text lblClothify;
+    public JFXButton btnUpdate;
+    public JFXButton btnDelete;
+    public JFXButton btnAction;
+    public JFXButton btnAdd;
+    public JFXButton btnClear;
+    
+    public JFXButton btnCustomerDetails;
+    
+    public JFXButton btnManageEmployee;
+    
+    public JFXButton btnOrderDetails;
+    
+    public JFXButton btnPlaceOrder;
 
-    @FXML
-    private JFXButton btnAdd;
+    public JFXButton btnProductDetails;
+    
+    public JFXButton btnSupplierDetails;
+    
+    public TableColumn<User, String> colEmployeeAddress;
 
-    @FXML
-    private JFXButton btnClear;
+    public TableColumn<User, String> colEmployeeEmail;
 
-    @FXML
-    private JFXButton btnCustomerDetails;
+    public TableColumn<User, String> colEmployeeId;
+    
+    public TableColumn<User, String> colEmployeeName;
+    
+    public TableView<User> tblEmployee;
+    
+    public JFXTextField txtEmployeeAddress;
+    
+    public JFXTextField txtEmployeeEmail;
 
-    @FXML
-    private JFXButton btnManageEmployee;
+    public JFXTextField txtEmployeeId;
 
-    @FXML
-    private JFXButton btnOrderDetails;
-
-    @FXML
-    private JFXButton btnPlaceOrder;
-
-    @FXML
-    private JFXButton btnProductDetails;
-
-    @FXML
-    private JFXButton btnSupplierDetails;
-
-    @FXML
-    private TableColumn<User, String> colEmployeeAddress;
-
-    @FXML
-    private TableColumn<User, String> colEmployeeEmail;
-
-    @FXML
-    private TableColumn<User, String> colEmployeeId;
-
-    @FXML
-    private TableColumn<User, String> colEmployeeName;
-
-    @FXML
-    private TableView<User> tblEmployee;
-
-    @FXML
-    private JFXTextField txtEmployeeAddress;
-
-    @FXML
-    private JFXTextField txtEmployeeEmail;
-
-    @FXML
-    private JFXTextField txtEmployeeId;
-
-    @FXML
-    private JFXTextField txtEmployeeName;
-
-    @FXML
-    private AnchorPane manageEmployeeWindow;
+    public JFXTextField txtEmployeeName;
+    
+    public AnchorPane manageEmployeeWindow;
 
     private final UserBo userBo;
-
-    private String currentId;
+    
 
     private final ScenseSwitchController sceneSwitch;
 
@@ -89,20 +74,8 @@ public class ManageEmployeeFormController implements Initializable {
         this.userBo = BoFactory.getInstance().getBo(BoType.USER);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        txtEmployeeId.setEditable(false);
-        loadEmployeeId();
-
-        colEmployeeId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colEmployeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colEmployeeEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colEmployeeAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        loadEmployeeTbl();
-    }
-
-    @FXML
-    void btnActionOnAction(ActionEvent event) {
+   
+    public void btnActionOnAction(ActionEvent event) {
 
         txtEmployeeId.setEditable(true);
         txtEmployeeId.setText("");
@@ -138,7 +111,7 @@ public class ManageEmployeeFormController implements Initializable {
     }
 
     private void loadEmployeeId(){
-        currentId = userBo.generateEmployeeId();
+        String currentId = userBo.generateEmployeeId();
         txtEmployeeId.setText(currentId);
     }
 
@@ -199,7 +172,7 @@ public class ManageEmployeeFormController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
             // Check if the response was OK or Cancel
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                if (userBo.updateUser(user)) {
+                if (userBo.updateuser(user)) {
                     new Alert(Alert.AlertType.INFORMATION, "Employee Updated Successfully").show();
                 }else {
                     new Alert(Alert.AlertType.ERROR, "Update failed. Try again...").show();
@@ -226,8 +199,19 @@ public class ManageEmployeeFormController implements Initializable {
         loadEmployeeTbl();
         clearTextFields();
     }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtEmployeeId.setEditable(false);
+        loadEmployeeId();
 
-
+        colEmployeeId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colEmployeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colEmployeeEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colEmployeeAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        loadEmployeeTbl();
+        
+    }
 }
 
-}
+

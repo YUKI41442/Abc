@@ -3,6 +3,7 @@ package org.example.dao.crud.impl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.dao.crud.UserDao;
+import org.example.entity.UserEntity;
 import org.example.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -98,5 +99,21 @@ public class UserDaoImpl implements UserDao {
         session.getTransaction().commit();
         session.close();
         return i > 0;
+    }
+
+
+    @Override
+    public boolean updatePasswordByEmail(String email, String password) {
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+
+        Query query = session.createQuery("UPDATE user SET password =:p WHERE email =:e");
+        query.setParameter("p",password);
+        query.setParameter("e",email);
+        int i = query.executeUpdate();
+
+        session.getTransaction().commit();
+        session.close();
+        return i>0;
     }
 }

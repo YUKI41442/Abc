@@ -4,13 +4,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.ObservableList;
 import org.example.bo.asset.PlaceOrderBo;
 import org.example.dao.DaoFactory;
+import org.example.dao.crud.PlaceOrderDao;
 import org.example.dao.crud.impl.PlaceOrderDaoImpl;
 import org.example.entity.OrderEntity;
-import org.hibernate.query.Order;
+import org.example.model.Order;
+import org.example.util.DaoType;
 
 public class PlaceOrderBoImpl implements PlaceOrderBo {
 
-    private final PlaceOrderDaoImpl placeOrderDao;
+    private final PlaceOrderDao placeOrderDao;
 
     public PlaceOrderBoImpl() {
         this.placeOrderDao = DaoFactory.getInstance().getDao(DaoType.ORDER);
@@ -40,11 +42,6 @@ public class PlaceOrderBoImpl implements PlaceOrderBo {
     }
 
     @Override
-    public boolean deleteOrderById(String id) {
-        return false;
-    }
-
-    @Override
     public String getLatestOrderId(){
         return placeOrderDao.getLatestOrderId();
     }
@@ -54,7 +51,9 @@ public class PlaceOrderBoImpl implements PlaceOrderBo {
         return new ObjectMapper()
                 .convertValue(placeOrderDao.search(orderId), Order.class);
     }
+
+    @Override
+    public boolean deleteOrderById(String id){
+        return placeOrderDao.delete(id);
+    }
 }
-
-
-

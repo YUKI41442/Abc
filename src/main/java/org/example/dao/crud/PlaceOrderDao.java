@@ -1,15 +1,17 @@
 package org.example.dao.crud;
 
 import javafx.collections.ObservableList;
+import org.example.entity.OrderEntity;
 
 public interface PlaceOrderDao {
-    OrderEntity search(String s);
+    Object search(String s);
 
     ObservableList<OrderEntity> getAll();
 
-    void insert(OrderEntity orderEntity);
 
     boolean update(OrderEntity orderEntity);
+
+    void insert(OrderEntity orderEntity);
 
     boolean delete(String s);
 

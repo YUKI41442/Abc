@@ -1,13 +1,13 @@
 package org.example.bo.asset;
 
 import javafx.collections.ObservableList;
+import org.example.bo.SuperBo;
+import org.example.model.Supplier;
 
-public interface SupplierBo {
+public interface SupplierBo extends SuperBo {
     boolean isValidEmail(String email);
 
     String generateSupplierId();
-
-    Supplier getSupplierById(String id);
 
     void addSupplier(Supplier supplier);
 
@@ -18,4 +18,6 @@ public interface SupplierBo {
     boolean deleteSupplierById(String id);
 
     ObservableList<String> getAllSupplierIds();
+
+    Supplier getSupplierById(String id);
 }

@@ -16,4 +16,7 @@ public class Cart {
     private Double price;
     private Integer qty;
     private Double total;
+
+    public Cart(int i, String text, double unitPrice, int qty, double v) {
+    }
 }

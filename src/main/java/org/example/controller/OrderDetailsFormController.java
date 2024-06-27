@@ -8,7 +8,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import org.example.bo.BoFactory;
+import org.example.bo.asset.PlaceOrderBo;
 import org.example.entity.OrderEntity;
+import org.example.util.BoType;
 
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -53,13 +56,18 @@ public class OrderDetailsFormController implements Initializable {
     @FXML
     private AnchorPane viewOrdersWindow;
 
-    private final ScenseSwitchController sceneSwitch;
+    private ScenseSwitchController sceneSwitch;
 
-    private final PlaceOrderBo placeOrderBo;
+    private PlaceOrderBo placeOrderBo;
 
-    public OrderDetailsFromController() {
+    public void OrderDetailsFromController() {
         this.sceneSwitch = ScenseSwitchController.getInstance();
         this.placeOrderBo = BoFactory.getInstance().getBo(BoType.PLACEORDER);
+    }
+
+    public OrderDetailsFormController(ScenseSwitchController sceneSwitch, PlaceOrderBo placeOrderBo) {
+        this.sceneSwitch = sceneSwitch;
+        this.placeOrderBo = placeOrderBo;
     }
 
     @Override

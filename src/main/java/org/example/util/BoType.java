@@ -1,6 +1,5 @@
 package org.example.util;
 
-public class BoType {
-
+public enum BoType {
     USER,PRODUCT,CUSTOMER,PLACEORDER,SUPPLIER
 }

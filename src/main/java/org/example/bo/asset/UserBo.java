@@ -1,11 +1,16 @@
 package org.example.bo.asset;
 
 import javafx.collections.ObservableList;
+import org.example.bo.SuperBo;
+import org.example.entity.UserEntity;
+import org.example.model.User;
 
-public interface UserBo {
-    void insertUser(User user);
+import javax.mail.MessagingException;
 
+public interface UserBo extends SuperBo {
     UserEntity getUserByEmail(String email);
+
+    void insertUser(User user);
 
     boolean isValidEmail(String email);
 
@@ -18,4 +23,19 @@ public interface UserBo {
     boolean updateUser(User user);
 
     boolean deleteUserById(String id);
+
+    String generateEmployeeId();
+
+    boolean checkIfUserPasswordMatches(String name, String password);
+
+    String passwordEncrypt(String password);
+
+    String passwordDecrypt(String password);
+
+    void sendEmail(String receiveEmail,String text) throws MessagingException, MessagingException;
+
+    boolean updatePasswordByEmail(String email,String password);
+
+    boolean updateuser(User user);
 }
+

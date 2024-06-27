@@ -3,6 +3,8 @@ package org.example.dao.crud.impl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.dao.crud.PlaceOrderDao;
+import org.example.entity.OrderEntity;
+import org.example.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -11,7 +13,7 @@ import java.util.List;
 public class PlaceOrderDaoImpl implements PlaceOrderDao {
 
     @Override
-    public OrderEntity search(String s) {
+    public Object search(String s) {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
 

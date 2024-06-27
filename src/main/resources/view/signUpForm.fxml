@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="loginWindow" prefHeight="505.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.SignUpFormController">
+<AnchorPane fx:id="signUpWindow" prefHeight="505.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.SignUpFormController">
     <children>
         <ImageView fitHeight="13.0" fitWidth="12.0" layoutX="140.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -274,7 +274,7 @@
             </font>
         </JFXCheckBox>
         <Separator layoutX="275.0" layoutY="368.0" prefHeight="12.0" prefWidth="82.0" />
-        <JFXButton fx:id="btnSignUp" layoutX="363.0" layoutY="383.0" onAction="#SignUpOnAction" prefHeight="20.0" prefWidth="88.0" style="-fx-background-color: gray; -fx-background-radius: 10px;" text="Sign in" textFill="WHITE">
+        <JFXButton layoutX="363.0" layoutY="383.0" onAction="#BackToLoginOnAction" prefHeight="20.0" prefWidth="88.0" style="-fx-background-color: gray; -fx-background-radius: 10px;" text="Sign in" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="11.0" />
             </font>

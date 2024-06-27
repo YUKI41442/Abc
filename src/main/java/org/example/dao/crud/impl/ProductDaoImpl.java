@@ -3,6 +3,7 @@ package org.example.dao.crud.impl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.dao.crud.ProductDao;
+import org.example.entity.ProductEntity;
 import org.example.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -98,6 +99,21 @@ public class ProductDaoImpl implements ProductDao {
 
         idList.addAll(list);
         return idList;
+    }
+
+
+    @Override
+    public boolean updateQtyById(String id, int qty) {
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+        Query query = session.createQuery("UPDATE product SET qty =:qty WHERE id =:id");
+        query.setParameter("id", id);
+        query.setParameter("qty", qty);
+
+        int i = query.executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+        return i > 0;
     }
 }
 

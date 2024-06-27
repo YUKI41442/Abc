@@ -12,6 +12,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import org.example.bo.BoFactory;
+import org.example.bo.asset.ProductBo;
+import org.example.model.Product;
+import org.example.util.BoType;
 
 import java.io.IOException;
 import java.net.URL;
@@ -95,11 +99,10 @@ public class ProductDetailsFormController implements Initializable {
 
     private final ScenseSwitchController sceneSwitch;
 
-    public ProductDetailsFromController() {
+    public ProductDetailsFormController() {
         this.productBo = BoFactory.getInstance().getBo(BoType.PRODUCT);
         this.sceneSwitch = ScenseSwitchController.getInstance();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtItemId.setEditable(false);

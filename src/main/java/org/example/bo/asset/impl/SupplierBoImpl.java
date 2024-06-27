@@ -5,11 +5,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.bo.asset.SupplierBo;
 import org.example.dao.DaoFactory;
-import org.example.dao.crud.impl.SupplierDaoImpl;
+import org.example.dao.crud.SupplierDao;
+import org.example.entity.SupplierEntity;
+import org.example.model.Supplier;
+import org.example.util.DaoType;
 
 public class SupplierBoImpl implements SupplierBo {
 
-    private final SupplierDaoImpl supplierDao = DaoFactory.getInstance().getDao(DaoType.SUPPLIER);
+    private final SupplierDao supplierDao;
+
+    public SupplierBoImpl() {
+        this.supplierDao = DaoFactory.getInstance().getDao(DaoType.SUPPLIER);
+    }
 
     @Override
     public boolean isValidEmail(String email){
@@ -73,5 +80,3 @@ public class SupplierBoImpl implements SupplierBo {
         return supplierDao.getAllIds();
     }
 }
-
-

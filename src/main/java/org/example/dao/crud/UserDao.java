@@ -1,6 +1,7 @@
 package org.example.dao.crud;
 
 import javafx.collections.ObservableList;
+import org.example.entity.UserEntity;
 
 public interface UserDao {
     boolean isUserPasswordMatches(String name, String password);
@@ -10,10 +11,15 @@ public interface UserDao {
     UserEntity searchByEmail(String email);
 
     ObservableList<UserEntity> getAll();
-
-    void insert(UserEntity userEntity);
+    
 
     boolean update(UserEntity userEntity);
 
+    void insert(UserEntity userEntity);
+
     boolean delete(String id);
+
+    boolean updatePasswordByEmail(String email, String password);
+
+    String getLatestId();
 }

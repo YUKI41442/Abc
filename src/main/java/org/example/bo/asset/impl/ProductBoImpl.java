@@ -5,13 +5,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.bo.asset.ProductBo;
 import org.example.dao.DaoFactory;
-import org.example.dao.crud.impl.ProductDaoImpl;
+import org.example.dao.crud.ProductDao;
 import org.example.entity.ProductEntity;
 import org.example.model.Product;
+import org.example.util.DaoType;
 
 public class ProductBoImpl implements ProductBo {
 
-    private final ProductDaoImpl productDaoImpl = DaoFactory.getInstance().getDao(DaoType.PRODUCT);
+    private final ProductDao productDaoImpl;
+
+    public ProductBoImpl() {
+        this.productDaoImpl = DaoFactory.getInstance().getDao(DaoType.PRODUCT);
+    }
 
     @Override
     public void addProduct(Product product){
@@ -57,6 +62,11 @@ public class ProductBoImpl implements ProductBo {
         return productDaoImpl.update(
                 new ObjectMapper()
                         .convertValue(product,ProductEntity.class));
+    }
+
+    @Override
+    public boolean updateQtyById(String id, int qty) {
+        return productDaoImpl.updateQtyById(id, qty);
     }
 
     @Override

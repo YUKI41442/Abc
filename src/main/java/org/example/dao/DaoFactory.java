@@ -1,6 +1,9 @@
 package org.example.dao;
 
+import org.example.dao.crud.impl.*;
 import org.example.util.DaoType;
+
+import static org.example.util.DaoType.*;
 
 public class DaoFactory {
 
@@ -14,13 +17,18 @@ public class DaoFactory {
     }
 
     public <T extends SuperDao>T getDao(DaoType type){
-        switch (type){
-            case USER:return (T)new UserDaoImpl();
-            case CUSTOMER:return (T)new CustomerDaoImpl();
-            case PRODUCT:return (T)new ProductDaoImpl();
-            case CART:return (T)new PlaceOrderDaoImpl();
-            case ORDER:return (T)new PlaceOrderDaoImpl();
-            case SUPPLIER:return (T)new SupplierDaoImpl();
+        if (type.equals(USER)) {
+            return (T) new UserDaoImpl();
+        } else if (type.equals(CUSTOMER)) {
+            return (T) new CustomerDaoImpl();
+        } else if (type.equals(PRODUCT)) {
+            return (T) new ProductDaoImpl();
+        } else if (type.equals(CART)) {
+            return (T) new PlaceOrderDaoImpl();
+        } else if (type.equals(ORDER)) {
+            return (T) new PlaceOrderDaoImpl();
+        } else if (type.equals(SUPPLIER)) {
+            return (T) new SupplierDaoImpl();
         }
         return null;
     }

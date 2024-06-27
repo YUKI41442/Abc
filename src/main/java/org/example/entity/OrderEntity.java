@@ -3,13 +3,10 @@ package org.example.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
-
+@Data
 @Setter
 @Getter
 @AllArgsConstructor
@@ -18,7 +15,7 @@ import java.util.Date;
 @Table(name = "order_table")
 public class OrderEntity {
     @Id
-    //FG
+
     private String id;
     private String cusId;
     private String status;

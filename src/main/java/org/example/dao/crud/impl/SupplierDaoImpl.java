@@ -3,6 +3,7 @@ package org.example.dao.crud.impl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.dao.crud.SupplierDao;
+import org.example.entity.SupplierEntity;
 import org.example.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;

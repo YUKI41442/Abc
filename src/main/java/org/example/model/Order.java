@@ -8,4 +8,7 @@ public class Order {
     private String cusId;
     private Date date;
     private Double amount;
+
+    public Order(String text, String value, Date date, double v) {
+    }
 }
