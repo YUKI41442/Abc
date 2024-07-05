@@ -25,69 +25,67 @@ import java.util.ResourceBundle;
 public class SupplierDetailsFormController implements Initializable {
 
     @FXML
-    public JFXButton btnAction;
+    private JFXButton btnAction;
 
     @FXML
-    public JFXButton btnAdd;
+    private JFXButton btnAdd;
 
     @FXML
-    public JFXButton btnClear;
+    private JFXButton btnClear;
 
     @FXML
-    public JFXButton btnCustomerDetails;
+    private JFXButton btnCustomerDetails;
 
     @FXML
-    public JFXButton btnManageEmployee;
+    private JFXButton btnManageEmployee;
 
     @FXML
-    public JFXButton btnOrderDetails;
+    private JFXButton btnOrderDetails;
 
     @FXML
-    public JFXButton btnPlaceOrder;
+    private JFXButton btnPlaceOrder;
 
     @FXML
-    public JFXButton btnProductDetails;
+    private JFXButton btnProductDetails;
 
     @FXML
-    public JFXButton btnSupplierDetails;
+    private JFXButton btnSupplierDetails;
 
     @FXML
-    public TableColumn<?, ?> colSupplierCompany;
+    private TableColumn<?, ?> colSupplierCompany;
 
     @FXML
-    public TableColumn<?, ?> colSupplierEmail;
+    private TableColumn<?, ?> colSupplierEmail;
 
     @FXML
-    public TableColumn<?, ?> colSupplierId;
+    private TableColumn<?, ?> colSupplierId;
 
     @FXML
-    public TableColumn<?, ?> colSupplierName;
+    private TableColumn<?, ?> colSupplierName;
 
     @FXML
-    public Text lblClothify;
+    private Text lblClothify;
 
     @FXML
-    public AnchorPane supplierWindow;
+    private AnchorPane supplierWindow;
 
     @FXML
-    public TableView<Supplier> tblSupplier;
+    private TableView<Supplier> tblSupplier;
 
     @FXML
-    public JFXTextField txtSupplierCompany;
+    private JFXTextField txtSupplierCompany;
 
     @FXML
-    public JFXTextField txtSupplierEmail;
+    private JFXTextField txtSupplierEmail;
 
     @FXML
-    public JFXTextField txtSupplierId;
+    private JFXTextField txtSupplierId;
 
     @FXML
-    public JFXTextField txtSupplierName;
+    private JFXTextField txtSupplierName;
 
     private final ScenseSwitchController sceneSwitch;
-
     private String currentId;
-
     private final SupplierBo supplierBo;
 
     public SupplierDetailsFormController() {
@@ -95,9 +93,24 @@ public class SupplierDetailsFormController implements Initializable {
         this.supplierBo = BoFactory.getInstance().getBo(BoType.SUPPLIER);
     }
 
+    private void clearTextFields(){
+        txtSupplierName.setText("");
+        txtSupplierEmail.setText("");
+        txtSupplierCompany.setText("");
+    }
+
+    private void loadSupplierId(){
+        currentId = supplierBo.generateSupplierId();
+        txtSupplierId.setText(currentId);
+    }
+
+    private void loadSupplierTbl(){
+
+        tblSupplier.setItems(supplierBo.getAllSuppliers());
+    }
+
     @FXML
     void btnActionOnAction(ActionEvent event) {
-
 
         txtSupplierId.setEditable(true);
         txtSupplierId.setText("");
@@ -106,9 +119,15 @@ public class SupplierDetailsFormController implements Initializable {
         btnAction.setVisible(false);
     }
 
+    private boolean areTextFieldsEmpty() {
+        return txtSupplierId.getText().isEmpty() &&
+                txtSupplierName.getText().isEmpty() &&
+                txtSupplierCompany.getText().isEmpty() &&
+                txtSupplierEmail.getText().isEmpty();
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
-
         if (!areTextFieldsEmpty()) {
             String email = txtSupplierEmail.getText();
             if (supplierBo.isValidEmail(email)){
@@ -134,6 +153,69 @@ public class SupplierDetailsFormController implements Initializable {
         }
     }
 
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+
+        clearTextFields();
+    }
+
+    @FXML
+    void btnCustomerDetailsOnAction(ActionEvent event) throws IOException {
+
+        sceneSwitch.switchScene(supplierWindow,"customerDetailsForm.fxml");
+    }
+
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+        if (!areTextFieldsEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to proceed?");
+            Optional<ButtonType> result = alert.showAndWait();
+            // Check if the response was OK or Cancel
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                if (supplierBo.deleteSupplierById(txtSupplierId.getText())) {
+                    new Alert(Alert.AlertType.INFORMATION, "Supplier Deleted Successfully").show();
+                }else {
+                    new Alert(Alert.AlertType.ERROR, "Delete failed. Try again...").show();
+                }
+            }
+            loadSupplierTbl();
+            clearTextFields();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
+        }
+    }
+
+
+    @FXML
+    void btnManageEmployeeOnAction(ActionEvent event) throws IOException {
+
+        sceneSwitch.switchScene(supplierWindow,"manageEmployeeForm.fxml");
+    }
+
+    @FXML
+    void btnOrderDetailsOnAction(ActionEvent event) throws IOException {
+
+        sceneSwitch.switchScene(supplierWindow,"orderDetailsForm.fxml");
+    }
+
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) throws IOException {
+
+        sceneSwitch.switchScene(supplierWindow,"placeOrderForm.fxml");
+    }
+
+    @FXML
+    void btnProductDetailsOnAction(ActionEvent event) throws IOException {
+
+        sceneSwitch.switchScene(supplierWindow,"productDetailsForm.fxml");
+    }
+
+    @FXML
+    void btnSuplierDetailsOnAction(ActionEvent event) throws IOException {
+
+        sceneSwitch.switchScene(supplierWindow,"supplierDetailsForm.fxml");
+
+    }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
@@ -165,80 +247,6 @@ public class SupplierDetailsFormController implements Initializable {
         }
     }
 
-    @FXML
-    void btnClearOnAction(ActionEvent event) {
-
-        clearTextFields();
-    }
-
-    @FXML
-    void btnCustomerDetailsOnAction(ActionEvent event) throws IOException {
-
-        sceneSwitch.switchScene(supplierWindow,"customerDetailsForm.fxml");
-
-    }
-
-    @FXML
-    void btnManageEmployeeOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(supplierWindow,"manageEmployeeForm.fxml");
-    }
-
-    @FXML
-    void btnOrderDetailsOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(supplierWindow,"orderDetailsForm.fxml");
-
-    }
-
-    @FXML
-    void btnPlaceOrderOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(supplierWindow,"placeOrderForm.fxml");
-    }
-
-    @FXML
-    void btnProductDetailsOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(supplierWindow,"productDetailsForm.fxml");
-
-    }
-    @FXML
-    void btnSuplierDetailsOnAction(ActionEvent event) throws IOException {
-
-        sceneSwitch.switchScene(supplierWindow,"supplierDetailsForm.fxml");
-
-    }
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        if (!areTextFieldsEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to proceed?");
-            Optional<ButtonType> result = alert.showAndWait();
-            // Check if the response was OK or Cancel
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-                if (supplierBo.deleteSupplierById(txtSupplierId.getText())) {
-                    new Alert(Alert.AlertType.INFORMATION, "Supplier Deleted Successfully").show();
-                }else {
-                    new Alert(Alert.AlertType.ERROR, "Delete failed. Try again...").show();
-                }
-            }
-            loadSupplierTbl();
-            clearTextFields();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
-        }
-    }
-
-    private void clearTextFields(){
-        txtSupplierName.setText("");
-        txtSupplierEmail.setText("");
-        txtSupplierCompany.setText("");
-    }
-
-    private void loadSupplierId(){
-        currentId = supplierBo.generateSupplierId();
-        txtSupplierId.setText(currentId);
-    }
-
-    private void loadSupplierTbl(){
-        tblSupplier.setItems(supplierBo.getAllSuppliers());
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -250,12 +258,5 @@ public class SupplierDetailsFormController implements Initializable {
         colSupplierEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colSupplierCompany.setCellValueFactory(new PropertyValueFactory<>("company"));
         loadSupplierTbl();
-    }
-
-    private boolean areTextFieldsEmpty() {
-        return txtSupplierId.getText().isEmpty() &&
-                txtSupplierName.getText().isEmpty() &&
-                txtSupplierCompany.getText().isEmpty() &&
-                txtSupplierEmail.getText().isEmpty();
     }
 }

@@ -13,7 +13,6 @@ import org.example.bo.asset.PlaceOrderBo;
 import org.example.entity.OrderEntity;
 import org.example.util.BoType;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,30 +55,14 @@ public class OrderDetailsFormController implements Initializable {
     @FXML
     private AnchorPane viewOrdersWindow;
 
-    private ScenseSwitchController sceneSwitch;
+    private final ScenseSwitchController sceneSwitch;
 
-    private PlaceOrderBo placeOrderBo;
+    private final PlaceOrderBo placeOrderBo;
 
-    public void OrderDetailsFromController() {
+    public OrderDetailsFormController() {
         this.sceneSwitch = ScenseSwitchController.getInstance();
         this.placeOrderBo = BoFactory.getInstance().getBo(BoType.PLACEORDER);
     }
-
-    public OrderDetailsFormController(ScenseSwitchController sceneSwitch, PlaceOrderBo placeOrderBo) {
-        this.sceneSwitch = sceneSwitch;
-        this.placeOrderBo = placeOrderBo;
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        colOrderId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colCustomerId.setCellValueFactory(new PropertyValueFactory<>("cusId"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-
-        tblOrder.setItems(placeOrderBo.getAllOrders());
-    }
-
 
     @FXML
     void btnCustomerDetailsOnAction(ActionEvent event) throws IOException {
@@ -110,11 +93,14 @@ public class OrderDetailsFormController implements Initializable {
     void btnSuplierDetailsOnAction(ActionEvent event) throws IOException {
         sceneSwitch.switchScene(viewOrdersWindow,"supplierDetailsForm.fxml");
     }
-    @FXML
-    void lblClothifyMouseClicked(MouseEvent event) throws IOException {
-        sceneSwitch.switchScene(viewOrdersWindow,"dashboard-form.fxml");
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colOrderId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colCustomerId.setCellValueFactory(new PropertyValueFactory<>("cusId"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+
+        tblOrder.setItems(placeOrderBo.getAllOrders());
     }
-
 }
-
-

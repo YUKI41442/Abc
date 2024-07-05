@@ -1,25 +1,14 @@
 package org.example.dao.crud;
 
-import javafx.collections.ObservableList;
+import org.example.dao.CrudDao;
 import org.example.entity.UserEntity;
 
-public interface UserDao {
-    boolean isUserPasswordMatches(String name, String password);
-
-    UserEntity search(String id);
-
+public interface UserDao extends CrudDao<UserEntity ,String> {
     UserEntity searchByEmail(String email);
 
-    ObservableList<UserEntity> getAll();
-    
-
-    boolean update(UserEntity userEntity);
-
-    void insert(UserEntity userEntity);
-
-    boolean delete(String id);
-
-    boolean updatePasswordByEmail(String email, String password);
-
     String getLatestId();
+
+    boolean isUserPasswordMatches(String name, String password);
+
+    boolean updatePasswordByEmail(String email,String password);
 }

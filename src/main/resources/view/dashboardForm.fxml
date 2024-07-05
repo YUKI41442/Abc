@@ -377,5 +377,13 @@
                 </LinearGradient>
             </fill>
         </Text>
+      <JFXButton layoutX="37.0" layoutY="388.0" onAction="#btnSignOutOnAction" prefHeight="27.0" prefWidth="69.0" style="-fx-background-color: black; -fx-border-radius: 50;" text="Sign Out" textFill="WHITE">
+         <font>
+            <Font name="Apple LiGothic Medium" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
     </children>
 </AnchorPane>

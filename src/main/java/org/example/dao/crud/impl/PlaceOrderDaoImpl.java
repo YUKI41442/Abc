@@ -13,7 +13,7 @@ import java.util.List;
 public class PlaceOrderDaoImpl implements PlaceOrderDao {
 
     @Override
-    public Object search(String s) {
+    public OrderEntity search(String s) {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
 

@@ -22,6 +22,8 @@ public interface UserBo extends SuperBo {
 
     boolean updateUser(User user);
 
+    boolean updateuser(User user);
+
     boolean deleteUserById(String id);
 
     String generateEmployeeId();
@@ -32,10 +34,8 @@ public interface UserBo extends SuperBo {
 
     String passwordDecrypt(String password);
 
-    void sendEmail(String receiveEmail,String text) throws MessagingException, MessagingException;
+    void sendEmail(String receiveEmail, String text) throws MessagingException;
 
-    boolean updatePasswordByEmail(String email,String password);
+    boolean updatePasswordByEmail(String email, String password);
 
-    boolean updateuser(User user);
 }
-

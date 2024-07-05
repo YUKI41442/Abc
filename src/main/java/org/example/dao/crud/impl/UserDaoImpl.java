@@ -24,7 +24,18 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean isUserPasswordMatches(String name, String password) {
-        return false;
+
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+
+        Query query = session.createQuery(
+                "FROM user WHERE name =:name AND password =:password");
+        query.setParameter("name", name);
+        query.setParameter("password", password);
+        UserEntity userEntity = (UserEntity) query.uniqueResult();
+        session.close();
+
+        return userEntity != null;
     }
 
     @Override
@@ -35,6 +46,7 @@ public class UserDaoImpl implements UserDao {
         Query query = session.createQuery("FROM user WHERE id=:id");
         query.setParameter("id",id);
         UserEntity userEntity = (UserEntity) query.uniqueResult();
+
         session.close();
         return userEntity;
     }

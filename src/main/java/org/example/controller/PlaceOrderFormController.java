@@ -14,8 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -41,7 +39,6 @@ import java.util.*;
 
 public class PlaceOrderFormController implements Initializable {
 
-    public JFXTextField txtAvailableQty;
     @FXML
     private JFXButton btnCustomerDetails;
 
@@ -85,7 +82,13 @@ public class PlaceOrderFormController implements Initializable {
     private TableColumn<?, ?> colUnitPrice;
 
     @FXML
-    private Text lblCashier;
+    private Label lblDate;
+
+    @FXML
+    private Label lblTime;
+
+    @FXML
+    private Label lblTime1;
 
     @FXML
     private Text lblTotal;
@@ -95,6 +98,9 @@ public class PlaceOrderFormController implements Initializable {
 
     @FXML
     private TableView<Cart> tblCart;
+
+    @FXML
+    private JFXTextField txtAvailableQty;
 
     @FXML
     private JFXTextField txtCustomerAddress;
@@ -115,32 +121,19 @@ public class PlaceOrderFormController implements Initializable {
     private JFXTextField txtOrderId;
 
     @FXML
-    private Label lblDate;
-
-    @FXML
-    private Label lblTime;
-
-    @FXML
     private JFXTextField txtPrice;
 
+
     private final ScenseSwitchController sceneSwitch;
-
     private final ProductBo productBo;
-
     private final CustomerBo customerBo;
-
     private final PlaceOrderBo placeOrderBo;
-
     private int cartId;
-
-    private double total;
-
+    private  double total;
     private final Map<String, Integer> map;
-
     private final ObservableList<Cart> cartList = FXCollections.observableArrayList();
 
-    public PlaceOrderFormController(Text lblCashier) {
-        this.lblCashier = lblCashier;
+    public PlaceOrderFormController() {
         this.sceneSwitch = ScenseSwitchController.getInstance();
         this.productBo = BoFactory.getInstance().getBo(BoType.PRODUCT);
         this.customerBo = BoFactory.getInstance().getBo(BoType.CUSTOMER);
@@ -150,89 +143,14 @@ public class PlaceOrderFormController implements Initializable {
         this.total = 0;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadDateTime();
-        txtOrderId.setEditable(false);
-        txtCustomerName.setEditable(false);
-        txtCustomerEmail.setEditable(false);
-        txtCustomerAddress.setEditable(false);
-        txtItemName.setEditable(false);
-        txtPrice.setEditable(false);
-        txtAvailableQty.setEditable(false);
-
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-
-        cmbCustomerId.setItems(customerBo.getAllCustomerIds());
-        cmbItemId.setItems(productBo.getAllProductIds());
-
-        txtOrderId.setText(placeOrderBo.generateOrderId());
-    }
-
-    @FXML
-    void btnAddToCartOnAction(ActionEvent event) {
-        if (!txtItemQty.getText().isEmpty()) {
-            Product product = productBo.getProductById(cmbItemId.getValue());
-            double unitPrice = Double.parseDouble(txtPrice.getText());
-            int qty = Integer.parseInt(txtItemQty.getText());
-            total += (unitPrice * qty);
-
-            map.put(product.getId(), product.getQty() - qty);
-            txtAvailableQty.setText(String.valueOf(product.getQty() - qty));
-
-            Cart cart = new Cart(
-                    cartId++,
-                    txtItemName.getText(),
-                    unitPrice,
-                    qty,
-                    (unitPrice * qty)
-            );
-            lblTotal.setText(String.valueOf(total));
-            cartList.add(cart);
-            tblCart.setItems(cartList);
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Quantity field can't be empty!").show();
-        }
-
-    }
-
-    @FXML
-    void cmbCustomerIdOnAction(ActionEvent event) {
-        cartId = 1;
-        lblTotal.setText("0.00");
-        Customer customer = customerBo.getCustomerById(cmbCustomerId.getValue());
-        txtCustomerName.setText(customer.getName());
-        txtCustomerEmail.setText(customer.getEmail());
-        txtCustomerAddress.setText(customer.getAddress());
-        tblCart.getItems().clear();
-        map.clear();
-        cartList.clear();
-    }
-
-    @FXML
-    void cmbItemIdOnAction(ActionEvent event) {
-        Product product = productBo.getProductById(cmbItemId.getValue());
-        txtItemName.setText(product.getName());
-        txtPrice.setText(String.valueOf(product.getPrice()));
-        txtAvailableQty.setText(String.valueOf(product.getQty()));
-    }
-
-
-    @FXML
-    void txtQtyKeyTypedEvent(KeyEvent event) {
-    }
-
     @FXML
     void btnCustomerDetailsOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(placeOrderWindow,"customer-details-form.fxml");
+        sceneSwitch.switchScene(placeOrderWindow, "customerDetailsForm.fxml");
+
     }
 
     @FXML
-    void btnFinalizeOrderOnAction(ActionEvent event) throws JRException, IOException {
+    void btnFinalizeOrderOnAction(ActionEvent event) {
         if (!areTextFieldsEmpty()) {
             Order order = new Order(
                     txtOrderId.getText(),
@@ -265,8 +183,70 @@ public class PlaceOrderFormController implements Initializable {
         } else {
             new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
         }
+
     }
 
+
+    private void loadDateTime() {
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        lblDate.setText(format.format(date));
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalTime localTime = LocalTime.now();
+            lblTime.setText(
+                    localTime.getHour() + " : " + localTime.getMinute() + " : " + localTime.getSecond()
+            );
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+    @FXML
+    void btnManageEmployeeOnAction(ActionEvent event) throws IOException {
+        sceneSwitch.switchScene(placeOrderWindow, "manageEmployeeForm.fxml");
+    }
+
+    @FXML
+    void btnOrderDetailsOnAction(ActionEvent event) throws IOException {
+        sceneSwitch.switchScene(placeOrderWindow, "orderDetailsForm.fxml");
+    }
+
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) throws IOException {
+        sceneSwitch.switchScene(placeOrderWindow, "placeOrderForm.fxml");
+    }
+
+    @FXML
+    void btnProductDetailsOnAction(ActionEvent event) throws IOException {
+        sceneSwitch.switchScene(placeOrderWindow, "productDetailsForm.fxml");
+    }
+
+    @FXML
+    void btnSuplierDetailsOnAction(ActionEvent event) throws IOException {
+        sceneSwitch.switchScene(placeOrderWindow, "supplierDetailsForm.fxml");
+    }
+
+    @FXML
+    void cmbCustomerIdOnAction(ActionEvent event) {
+        cartId = 1;
+        lblTotal.setText("0.00");
+        Customer customer = customerBo.getCustomerById(cmbCustomerId.getValue());
+        txtCustomerName.setText(customer.getName());
+        txtCustomerEmail.setText(customer.getEmail());
+        txtCustomerAddress.setText(customer.getAddress());
+        tblCart.getItems().clear();
+        map.clear();
+        cartList.clear();
+
+    }
+
+    /**
+     * @throws JRException
+     * @throws IOException
+     */
     private void generateInvoice() throws JRException, IOException {
         Map<String, Object> parameters = new HashMap<>();
 
@@ -300,51 +280,36 @@ public class PlaceOrderFormController implements Initializable {
         }
     }
 
-    private void loadDateTime() {
-        Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        lblDate.setText(format.format(date));
+    @FXML
+    void cmbItemIdOnAction(ActionEvent event) {
+        Product product = productBo.getProductById(cmbItemId.getValue());
+        txtItemName.setText(product.getName());
+        txtPrice.setText(String.valueOf(product.getPrice()));
+        txtAvailableQty.setText(String.valueOf(product.getQty()));
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            LocalTime localTime = LocalTime.now();
-            lblTime.setText(
-                    localTime.getHour() + " : " + localTime.getMinute() + " : " + localTime.getSecond()
-            );
-        }),
-                new KeyFrame(Duration.seconds(1))
-        );
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
     }
 
-    @FXML
-    void btnManageEmployeeOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(placeOrderWindow,"manage-employee-form.fxml");
-    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadDateTime();
+        txtOrderId.setEditable(false);
+        txtCustomerName.setEditable(false);
+        txtCustomerEmail.setEditable(false);
+        txtCustomerAddress.setEditable(false);
+        txtItemName.setEditable(false);
+        txtPrice.setEditable(false);
+        txtAvailableQty.setEditable(false);
 
-    @FXML
-    void btnOrderDetailsOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(placeOrderWindow,"order-details-form.fxml");
-    }
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
-    @FXML
-    void btnPlaceOrderOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(placeOrderWindow,"place-order-form.fxml");
-    }
+        cmbCustomerId.setItems(customerBo.getAllCustomerIds());
+        cmbItemId.setItems(productBo.getAllProductIds());
 
-    @FXML
-    void btnProductDetailsOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(placeOrderWindow,"product-details-form.fxml");
-    }
-
-    @FXML
-    void btnSupplierDetailsOnAction(ActionEvent event) throws IOException {
-        sceneSwitch.switchScene(placeOrderWindow,"supplier-details-form.fxml");
-    }
-
-    @FXML
-    void lblClothifyMouseClicked(MouseEvent event) throws IOException {
-        sceneSwitch.switchScene(placeOrderWindow,"dashboard-form.fxml");
+        txtOrderId.setText(placeOrderBo.generateOrderId());
     }
 
     private boolean areTextFieldsEmpty() {
@@ -366,11 +331,19 @@ public class PlaceOrderFormController implements Initializable {
         txtPrice.clear();
     }
 
-    public void btnFinalizeOderOnAction(ActionEvent actionEvent) {
+    public int getCartId() {
+        return cartId;
     }
 
-    public void btnSuplierDetailsOnAction(ActionEvent actionEvent) {
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }
-
-

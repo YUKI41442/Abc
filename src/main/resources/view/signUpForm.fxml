@@ -74,7 +74,7 @@
         </Text>
         <ImageView fitHeight="21.0" fitWidth="26.0" layoutX="559.0" layoutY="461.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/icons8-instagram-200(-xxxhdpi).png" />
+                <Image url="@../img/icons8-instagram-150(-xxhdpi).png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -82,7 +82,7 @@
         </ImageView>
         <ImageView fitHeight="21.0" fitWidth="28.0" layoutX="512.0" layoutY="461.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/icons8-facebook-200(-xxxhdpi).png" />
+                <Image url="@../img/icons8-facebook-150(-xxhdpi).png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -90,7 +90,7 @@
         </ImageView>
         <ImageView fitHeight="21.0" fitWidth="26.0" layoutX="536.0" layoutY="461.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/icons8-linkedin-200(-xxxhdpi).png" />
+                <Image url="@../img/icons8-linkedin-150(-xxhdpi).png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -240,7 +240,7 @@
             </cursor>
         </Text>
         <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#1f93ff00" height="351.0" layoutX="189.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="397.0" />
-        <JFXButton fx:id="btnSignIn" layoutX="273.0" layoutY="296.0" onAction="#btnSignInOnAction" prefHeight="33.0" prefWidth="274.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Sign Up" textFill="WHITE">
+        <JFXButton fx:id="btnSignUp" layoutX="273.0" layoutY="296.0" onAction="#btnSignUpOnAction" prefHeight="33.0" prefWidth="274.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Sign Up" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="19.0" />
             </font>
@@ -253,7 +253,7 @@
                 <Font name="Apple LiGothic Medium" size="36.0" />
             </font>
         </Text>
-        <JFXTextField fx:id="txtUserName" cache="true" layoutX="274.0" layoutY="109.0" prefHeight="22.0" prefWidth="270.0" promptText="Enter Name">
+        <JFXTextField fx:id="txtName" cache="true" layoutX="274.0" layoutY="109.0" prefHeight="22.0" prefWidth="270.0" promptText="Enter Name">
             <font>
                 <Font name="Apple LiGothic Medium" size="15.0" />
             </font>
@@ -274,7 +274,7 @@
             </font>
         </JFXCheckBox>
         <Separator layoutX="275.0" layoutY="368.0" prefHeight="12.0" prefWidth="82.0" />
-        <JFXButton layoutX="363.0" layoutY="383.0" onAction="#BackToLoginOnAction" prefHeight="20.0" prefWidth="88.0" style="-fx-background-color: gray; -fx-background-radius: 10px;" text="Sign in" textFill="WHITE">
+        <JFXButton layoutX="363.0" layoutY="383.0" onAction="#BackToLoginOnAction" prefHeight="20.0" prefWidth="88.0" style="-fx-background-color: gray; -fx-background-radius: 10px;" text="Back To Login" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="11.0" />
             </font>
@@ -287,12 +287,12 @@
                 <Font name="Apple LiGothic Medium" size="9.0" />
             </font>
         </Text>
-        <JFXTextField fx:id="txtUserName1" cache="true" layoutX="274.0" layoutY="188.0" prefHeight="22.0" prefWidth="270.0" promptText="Re-enter Your Email Address">
+        <JFXTextField fx:id="txtAddress" cache="true" layoutX="274.0" layoutY="188.0" prefHeight="22.0" prefWidth="270.0" promptText="Enter Address">
             <font>
                 <Font name="Apple LiGothic Medium" size="15.0" />
             </font>
         </JFXTextField>
-        <JFXTextField fx:id="txtUserName11" cache="true" layoutX="273.0" layoutY="148.0" prefHeight="22.0" prefWidth="270.0" promptText="Enter Email Address">
+        <JFXTextField fx:id="txtEmail" cache="true" layoutX="273.0" layoutY="148.0" prefHeight="22.0" prefWidth="270.0" promptText="Enter Email Address">
             <font>
                 <Font name="Apple LiGothic Medium" size="15.0" />
             </font>

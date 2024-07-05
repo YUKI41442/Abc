@@ -6,9 +6,10 @@ import org.example.entity.OrderEntity;
 import org.example.model.Order;
 
 public interface PlaceOrderBo extends SuperBo {
-    String generateOrderId();
 
     void saveOrder(Order order);
+
+    String generateOrderId();
 
     ObservableList<OrderEntity> getAllOrders();
 

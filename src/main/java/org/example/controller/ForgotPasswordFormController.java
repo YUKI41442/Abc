@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
@@ -20,17 +21,37 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ForgotPasswordFormController implements Initializable {
-    public JFXPasswordField pfReEnterPassword;
-    public AnchorPane forgotPasswordWindow;
-    public JFXButton btnSendOtp;
-    public JFXTextField txtEmail;
-    public JFXPasswordField pfPassword;
-    public JFXButton btnReset;
-    public JFXTextField txtOtp;
-    public CheckBox cbShowPassword;
+
+    @FXML
+    private JFXButton btnReset;
+
+    @FXML
+    private JFXButton btnSendOtp;
+
+    @FXML
+    private CheckBox cbShowPassword;
+
+    @FXML
+    private AnchorPane forgotPasswordWindow;
+
+    @FXML
+    private JFXPasswordField pfPassword;
+
+    @FXML
+    private JFXPasswordField pfReEnterPassword;
+
+    @FXML
+    private JFXTextField txtEmail;
+
+    @FXML
+    private JFXTextField txtOtp;
+
+    @FXML
     public TextField txtPassword;
 
+    @FXML
     public TextField txtReEnterPassword;
+
 
     private final UserBo userBo;
 
@@ -43,7 +64,43 @@ public class ForgotPasswordFormController implements Initializable {
         this.sceneSwitch = ScenseSwitchController.getInstance();
     }
 
-    public void btnSendOtpOnAction(ActionEvent actionEvent) {
+    @FXML
+    void BackToLoginOnAction(ActionEvent event) throws IOException {
+        sceneSwitch.switchScene(forgotPasswordWindow,"loginForm.fxml");
+
+    }
+
+    @FXML
+    void btnResetOnAction(ActionEvent event) throws IOException {
+
+        if (
+                        pfPassword.getText().isEmpty()
+                        && pfReEnterPassword.getText().isEmpty()
+                        && txtOtp.getText().isEmpty()
+        ) {
+            new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
+        } else {
+            if (pfPassword.getText().equals(pfReEnterPassword.getText())) {
+                if (Integer.parseInt(txtOtp.getText()) == otp) {
+                    if (
+                            userBo.updatePasswordByEmail(txtEmail.getText(),
+                                    userBo.passwordEncrypt(txtPassword.getText()))
+
+                    ) {
+                        new Alert(Alert.AlertType.INFORMATION, "Password Reset Successfully").show();
+                        sceneSwitch.switchScene(forgotPasswordWindow,"loginForm.fxml");
+                    } else {
+                        new Alert(Alert.AlertType.ERROR, "Password couldn't reset").show();
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    @FXML
+    void btnSendOtpOnAction(ActionEvent event) {
 
         if (!txtEmail.getText().isEmpty()) {
             Random random = new Random();
@@ -61,55 +118,28 @@ public class ForgotPasswordFormController implements Initializable {
         } else {
             new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
         }
+
     }
 
-    public void btnResetOnAction(ActionEvent actionEvent) throws IOException {
+    @FXML
+    void cbShowPasswordOnAction(ActionEvent event) {
 
-        if (
-                pfPassword.getText().isEmpty()
-                        && pfReEnterPassword.getText().isEmpty()
-                        && txtOtp.getText().isEmpty()
-        ) {
-            new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
+        if (cbShowPassword.isSelected()){
+            txtPassword.setText(pfPassword.getText());
+            pfPassword.setVisible(false);
+            txtReEnterPassword.setText(pfReEnterPassword.getText());
+            pfReEnterPassword.setVisible(false);
         } else {
-            if (pfPassword.getText().equals(pfReEnterPassword.getText())) {
-                if (Integer.parseInt(txtOtp.getText()) == otp) {
-                    if (
-                            userBo.updatePasswordByEmail(txtEmail.getText(),
-                                    userBo.passwordEncrypt(txtPassword.getText()))
-
-                    ) {
-                        new Alert(Alert.AlertType.INFORMATION, "Password Reset Successfully").show();
-                        sceneSwitch.switchScene(forgotPasswordWindow,"login-form.fxml");
-                    } else {
-                        new Alert(Alert.AlertType.ERROR, "Password couldn't reset").show();
-                    }
-                }
-            }
-        }
-    }
-
-    public void cbShowPasswordOnAction(ActionEvent actionEvent) {
-
-            if (cbShowPassword.isSelected()){
-                txtPassword.setText(pfPassword.getText());
-                pfPassword.setVisible(false);
-                txtReEnterPassword.setText(pfReEnterPassword.getText());
-                pfReEnterPassword.setVisible(false);
-            } else {
-                pfPassword.setVisible(true);
-                pfReEnterPassword.setVisible(true);
-            }
+            pfPassword.setVisible(true);
+            pfReEnterPassword.setVisible(true);
         }
 
-
-    public void BackToLoginOnAction(ActionEvent actionEvent) throws IOException {
-
-        sceneSwitch.switchScene(forgotPasswordWindow,"loginForm.fxml");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        btnReset.setDisable(true);
+        pfPassword.setEditable(false);
+        pfReEnterPassword.setEditable(false);
     }
 }

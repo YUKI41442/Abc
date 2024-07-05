@@ -1,12 +1,12 @@
 package org.example.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,20 +18,11 @@ import org.example.util.BoType;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
+
 public class CustomerDetailsFormController implements Initializable {
 
-    public JFXButton btnSendOtp;
-    public JFXTextField txtEmail;
-    public JFXPasswordField txtPassword;
-    public JFXPasswordField txtReEnterPassword;
-    public JFXButton btnReset;
-    public JFXTextField txtOtp;
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private JFXButton btnAction;
@@ -41,24 +32,6 @@ public class CustomerDetailsFormController implements Initializable {
 
     @FXML
     private JFXButton btnClear;
-
-    @FXML
-    private JFXButton btnCustomerDetails;
-
-    @FXML
-    private JFXButton btnManageEmployee;
-
-    @FXML
-    private JFXButton btnOrderDetails;
-
-    @FXML
-    private JFXButton btnPlaceOrder;
-
-    @FXML
-    private JFXButton btnProductDetails;
-
-    @FXML
-    private JFXButton btnSupplierDetails;
 
     @FXML
     private TableColumn<?, ?> colCustomerAddress;
@@ -126,7 +99,7 @@ public class CustomerDetailsFormController implements Initializable {
     @FXML
     void btnAddOnAction(ActionEvent event) {
 
-        if (!areTextFieldsEmpty()) {
+        if (areTextFieldsEmpty()) {
             String email = txtCustomerEmail.getText();
             if (customerBo.isValidEmail(email)){
                 Customer customer = new Customer(
@@ -152,10 +125,10 @@ public class CustomerDetailsFormController implements Initializable {
     }
 
     private boolean areTextFieldsEmpty() {
-        return txtCustomerId.getText().isEmpty() &&
-                txtCustomerName.getText().isEmpty() &&
-                txtCustomerEmail.getText().isEmpty() &&
-                txtCustomerAddress.getText().isEmpty();
+        return !txtCustomerId.getText().isEmpty() ||
+                !txtCustomerName.getText().isEmpty() ||
+                !txtCustomerEmail.getText().isEmpty() ||
+                !txtCustomerAddress.getText().isEmpty();
     }
 
     @FXML
@@ -163,6 +136,27 @@ public class CustomerDetailsFormController implements Initializable {
 
         clearTextFields();
     }
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+        if (areTextFieldsEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to proceed?");
+            Optional<ButtonType> result = alert.showAndWait();
+            // Check if the response was OK or Cancel
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                if (customerBo.deleteCustomerById(txtCustomerId.getText())) {
+                    new Alert(Alert.AlertType.INFORMATION, "Customer Deleted Successfully").show();
+                }else {
+                    new Alert(Alert.AlertType.ERROR, "Delete failed. Try again...").show();
+                }
+            }
+            loadCustomerTbl();
+            clearTextFields();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
+        }
+    }
+
+
 
     private void clearTextFields(){
         txtCustomerName.setText("");
@@ -208,6 +202,36 @@ public class CustomerDetailsFormController implements Initializable {
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) throws IOException {
         sceneSwitch.switchScene(customerWindow,"placeOrderForm.fxml");
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+        if (!areTextFieldsEmpty()) {
+            Customer customer = customerBo.getCustomerById(txtCustomerId.getText());
+
+            if (customer != null){
+                customer.setName(txtCustomerName.getText());
+                customer.setAddress(txtCustomerAddress.getText());
+                customer.setEmail(txtCustomerEmail.getText());
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to proceed?");
+                Optional<ButtonType> result = alert.showAndWait();
+                // Check if the response was OK or Cancel
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    if (customerBo.updateCustomer(customer)) {
+                        new Alert(Alert.AlertType.INFORMATION, "Customer Updated Successfully").show();
+                    }else {
+                        new Alert(Alert.AlertType.ERROR, "Update failed. Try again...").show();
+                    }
+                }
+            }else {
+                new Alert(Alert.AlertType.WARNING, "Customer does not exists...").show();
+            }
+            loadCustomerTbl();
+            clearTextFields();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Input fields can't be empty!").show();
+        }
     }
 
 }

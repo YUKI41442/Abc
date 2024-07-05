@@ -108,7 +108,7 @@
                 <Cursor fx:constant="TEXT" />
             </cursor>
         </JFXTextField>
-        <JFXButton fx:id="btnFinalizeOrder" layoutX="519.0" layoutY="274.0" onAction="#btnFinalizeOderOnAction" prefHeight="23.0" prefWidth="87.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Finalize Order" textFill="WHITE">
+        <JFXButton fx:id="btnFinalizeOrder" layoutX="519.0" layoutY="274.0" onAction="#btnFinalizeOrderOnAction" prefHeight="23.0" prefWidth="87.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Finalize Order" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="13.0" />
             </font>
@@ -279,7 +279,7 @@
             <Font name="Apple LiGothic Medium" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtItemQty" cache="true" layoutX="516.0" layoutY="198.0" prefHeight="27.0" prefWidth="155.0" promptText="Item Price" unFocusColor="#4d4d4d">
+      <JFXTextField fx:id="txtItemQty" cache="true" layoutX="516.0" layoutY="198.0" prefHeight="27.0" prefWidth="155.0" promptText="Qty" unFocusColor="#4d4d4d">
          <font>
             <Font name="Apple LiGothic Medium" size="15.0" />
          </font>

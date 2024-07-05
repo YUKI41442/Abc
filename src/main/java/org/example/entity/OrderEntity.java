@@ -15,7 +15,6 @@ import java.util.Date;
 @Table(name = "order_table")
 public class OrderEntity {
     @Id
-
     private String id;
     private String cusId;
     private String status;

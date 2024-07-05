@@ -17,6 +17,8 @@ import javax.mail.internet.MimeMessage;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserBoImpl implements UserBo {
 
@@ -131,8 +133,8 @@ public class UserBoImpl implements UserBo {
         properties.put("mail.smtp.host","smtp.gmail.com");
         properties.put("mail.smtp.port","587");
 
-        String myEmail = "dulanjithw701@gmail.com";
-        String password = "ypddqmxxusbppqdb";
+        String myEmail = "rasangasampath1111@gmail.com";
+        String password = "rasanga";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
@@ -162,10 +164,10 @@ public class UserBoImpl implements UserBo {
         return null;
     }
 
-    /*public boolean passwordValidate(String password){
+    public boolean passwordValidate(String password){
         Pattern pattern = Pattern.compile("((?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[@#%$!&]).{8,20})");
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
-    }*/
+    }
 }
 

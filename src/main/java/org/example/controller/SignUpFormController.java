@@ -1,6 +1,5 @@
 package org.example.controller;
 
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
@@ -23,40 +22,30 @@ import java.util.ResourceBundle;
 public class SignUpFormController implements Initializable {
 
     @FXML
-    public JFXButton btnSignIn;
+    private JFXButton btnSignUp;
 
     @FXML
-    public JFXCheckBox cbShowPassword;
+    private JFXCheckBox cbShowPassword;
 
     @FXML
-    public AnchorPane signUpWindow;
+    private AnchorPane signUpWindow;
 
     @FXML
-    public JFXPasswordField txtPassword;
+    private TextField txtShowPassword;
 
     @FXML
-    public JFXTextField txtUserName;
+    private JFXTextField txtAddress;
 
     @FXML
-    public JFXTextField txtUserName1;
+    private JFXTextField txtEmail;
 
     @FXML
-    public JFXTextField txtUserName11;
+    private JFXTextField txtName;
 
     @FXML
-    public TextField txtEmail;
-
-    @FXML
-    public TextField txtAddress;
-    @FXML
-    public TextField txtName;
-
-    @FXML
-    public TextField txtShowPassword;
-
+    private JFXPasswordField txtPassword;
 
     private final UserBo userBo;
-
     private final ScenseSwitchController sceneSwitch;
 
     public SignUpFormController() {
@@ -64,18 +53,16 @@ public class SignUpFormController implements Initializable {
         this.sceneSwitch = ScenseSwitchController.getInstance();
     }
 
-
     @FXML
     void BackToLoginOnAction(ActionEvent event) throws IOException {
-
         sceneSwitch.switchScene(signUpWindow,"loginForm.fxml");
     }
 
     @FXML
-    void btnSignInOnAction(ActionEvent event) throws IOException{
+    void btnSignUpOnAction(ActionEvent event) throws IOException {
 
         if (
-                txtName.getText().isEmpty()
+                        txtName.getText().isEmpty()
                         && txtEmail.getText().isEmpty()
                         && txtAddress.getText().isEmpty()
                         && txtPassword.getText().isEmpty()
@@ -95,7 +82,7 @@ public class SignUpFormController implements Initializable {
                 userBo.insertUser(user);
 
                 new Alert(Alert.AlertType.INFORMATION, "Sign Up Success").show();
-                sceneSwitch.switchScene(signUpWindow,"login-form.fxml");
+                sceneSwitch.switchScene(signUpWindow,"loginForm.fxml");
             } else {
                 new Alert(Alert.AlertType.ERROR, "Invalid Email. Try again...").show();
             }
@@ -114,6 +101,7 @@ public class SignUpFormController implements Initializable {
             txtPassword.setVisible(true);
             txtShowPassword.setVisible(false);
         }
+
     }
 
     @Override

@@ -93,7 +93,7 @@
                 <Cursor fx:constant="TEXT" />
             </cursor>
         </JFXTextField>
-        <JFXButton fx:id="btnAdd" layoutX="530.0" layoutY="146.0" onAction="#btnAddOnAction" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Add" textFill="WHITE">
+        <JFXButton fx:id="btnAdd" layoutX="530.0" layoutY="146.0" onAction="#btnAddOnAction" prefHeight="27.0" prefWidth="181.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Add" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="13.0" />
             </font>
@@ -204,7 +204,7 @@
             </font>
         </Text>
         <Rectangle arcHeight="10.0" arcWidth="10.0" height="52.0" layoutX="103.0" layoutY="420.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1.0" />
-        <JFXButton fx:id="btnClear" layoutX="530.0" layoutY="186.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Clear" textFill="WHITE">
+        <JFXButton fx:id="btnClear" layoutX="531.0" layoutY="186.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="176.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Clear" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="13.0" />
             </font>
@@ -212,7 +212,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton fx:id="btnAction" layoutX="529.0" layoutY="226.0" onAction="#btnActionOnAction" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Action" textFill="WHITE">
+        <JFXButton fx:id="btnAction" layoutX="532.0" layoutY="226.0" onAction="#btnActionOnAction" prefHeight="27.0" prefWidth="174.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Action" textFill="WHITE">
             <font>
                 <Font name="Apple LiGothic Medium" size="13.0" />
             </font>
