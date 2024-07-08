@@ -60,9 +60,8 @@ public class SignUpFormController implements Initializable {
 
     @FXML
     void btnSignUpOnAction(ActionEvent event) throws IOException {
-
         if (
-                        txtName.getText().isEmpty()
+                txtName.getText().isEmpty()
                         && txtEmail.getText().isEmpty()
                         && txtAddress.getText().isEmpty()
                         && txtPassword.getText().isEmpty()
@@ -87,7 +86,6 @@ public class SignUpFormController implements Initializable {
                 new Alert(Alert.AlertType.ERROR, "Invalid Email. Try again...").show();
             }
         }
-
     }
 
     @FXML

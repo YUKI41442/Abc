@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import lombok.Getter;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.example.bo.BoFactory;
@@ -128,7 +129,9 @@ public class PlaceOrderFormController implements Initializable {
     private final ProductBo productBo;
     private final CustomerBo customerBo;
     private final PlaceOrderBo placeOrderBo;
+    @Getter
     private int cartId;
+    @Getter
     private  double total;
     private final Map<String, Integer> map;
     private final ObservableList<Cart> cartList = FXCollections.observableArrayList();
@@ -330,20 +333,5 @@ public class PlaceOrderFormController implements Initializable {
         txtAvailableQty.clear();
         txtPrice.clear();
     }
-
-    public int getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
+    
 }

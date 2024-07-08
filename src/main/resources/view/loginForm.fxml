@@ -18,270 +18,316 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="loginWindow" prefHeight="505.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.LoginFormController">
-    <ImageView fitHeight="13.0" fitWidth="12.0" layoutX="140.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../img/icons8-email-100.png" />
+<AnchorPane fx:id="loginWindow" prefHeight="505.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/22"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.LoginFormController">
+    <ImageView fitHeight="13.0" fitWidth="12.0" layoutX="140.0" layoutY="466.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../img/icons8-email-100.png"/>
     </ImageView>
-    <ImageView fitHeight="14.0" fitWidth="12.0" layoutX="139.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../img/icons8-location-100.png" />
+    <ImageView fitHeight="14.0" fitWidth="12.0" layoutX="139.0" layoutY="480.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../img/icons8-location-100.png"/>
     </ImageView>
-    <ImageView fitHeight="11.0" fitWidth="16.0" layoutX="140.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../img/icons8-phone-100.png" />
+    <ImageView fitHeight="11.0" fitWidth="16.0" layoutX="140.0" layoutY="453.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../img/icons8-phone-100.png"/>
     </ImageView>
-    <Text layoutX="149.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+94 123 456 789" textAlignment="CENTER" wrappingWidth="69.35809346827881">
+    <Text layoutX="149.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+94 123 456 789"
+          textAlignment="CENTER" wrappingWidth="69.35809346827881">
         <font>
-            <Font name="Apple LiGothic Medium" size="9.0" />
+            <Font name="Apple LiGothic Medium" size="9.0"/>
         </font>
     </Text>
-    <Text layoutX="152.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="customer@clothifystore.com" textAlignment="CENTER" wrappingWidth="91.60440085449466">
+    <Text layoutX="152.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="customer@clothifystore.com"
+          textAlignment="CENTER" wrappingWidth="91.60440085449466">
         <font>
-            <Font name="Apple LiGothic Medium" size="9.0" />
+            <Font name="Apple LiGothic Medium" size="9.0"/>
         </font>
     </Text>
-    <Text layoutX="152.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panadura, Sri Lanka" textAlignment="CENTER" wrappingWidth="70.96199644234389">
+    <Text layoutX="152.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panadura, Sri Lanka"
+          textAlignment="CENTER" wrappingWidth="70.96199644234389">
         <font>
-            <Font name="Apple LiGothic Medium" size="9.0" />
+            <Font name="Apple LiGothic Medium" size="9.0"/>
         </font>
     </Text>
-    <Text layoutX="60.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify Store" wrappingWidth="62.141940125837436">
+    <Text layoutX="60.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify Store"
+          wrappingWidth="62.141940125837436">
         <font>
-            <Font name="Apple LiGothic Medium" size="19.0" />
+            <Font name="Apple LiGothic Medium" size="19.0"/>
         </font>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </Text>
-    <Text layoutX="87.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(PVT) Ltd." textAlignment="CENTER" wrappingWidth="42.126320091813966">
+    <Text layoutX="87.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(PVT) Ltd." textAlignment="CENTER"
+          wrappingWidth="42.126320091813966">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="498.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\@2024 Clothifystore inc." textAlignment="CENTER" wrappingWidth="91.60440085449466">
+    <Text layoutX="498.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\@2024 Clothifystore inc."
+          textAlignment="CENTER" wrappingWidth="91.60440085449466">
         <font>
-            <Font name="Apple LiGothic Medium" size="6.0" />
+            <Font name="Apple LiGothic Medium" size="6.0"/>
         </font>
     </Text>
-    <Text layoutX="498.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Follow Us" textAlignment="CENTER" wrappingWidth="91.60440085449466">
+    <Text layoutX="498.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Follow Us" textAlignment="CENTER"
+          wrappingWidth="91.60440085449466">
         <font>
-            <Font name="Apple LiGothic Medium" size="11.0" />
+            <Font name="Apple LiGothic Medium" size="11.0"/>
         </font>
     </Text>
-    <ImageView fitHeight="21.0" fitWidth="26.0" layoutX="559.0" layoutY="461.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="21.0" fitWidth="26.0" layoutX="559.0" layoutY="461.0" pickOnBounds="true"
+               preserveRatio="true">
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
-        <Image url="@../img/icons8-instagram-150(-xxhdpi).png" />
+        <Image url="@../img/icons8-instagram-150(-xxhdpi).png"/>
     </ImageView>
-    <ImageView fitHeight="21.0" fitWidth="28.0" layoutX="512.0" layoutY="461.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="21.0" fitWidth="28.0" layoutX="512.0" layoutY="461.0" pickOnBounds="true"
+               preserveRatio="true">
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
-        <Image url="@../img/icons8-facebook-150(-xxhdpi).png" />
+        <Image url="@../img/icons8-facebook-150(-xxhdpi).png"/>
     </ImageView>
-    <ImageView fitHeight="21.0" fitWidth="26.0" layoutX="536.0" layoutY="461.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="21.0" fitWidth="26.0" layoutX="536.0" layoutY="461.0" pickOnBounds="true"
+               preserveRatio="true">
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
-        <Image url="@../img/icons8-linkedin-150(-xxhdpi).png" />
+        <Image url="@../img/icons8-linkedin-150(-xxhdpi).png"/>
     </ImageView>
-    <Separator layoutX="57.0" layoutY="430.0" prefHeight="12.0" prefWidth="524.0" />
-    <Text layoutX="255.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company" textAlignment="CENTER" wrappingWidth="69.35809346827881">
+    <Separator layoutX="57.0" layoutY="430.0" prefHeight="12.0" prefWidth="524.0"/>
+    <Text layoutX="255.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company" textAlignment="CENTER"
+          wrappingWidth="69.35809346827881">
         <font>
-            <Font name="Apple LiGothic Medium" size="12.0" />
+            <Font name="Apple LiGothic Medium" size="12.0"/>
         </font>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </Text>
-    <Text layoutX="312.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Explore" textAlignment="CENTER" wrappingWidth="69.35809346827881">
+    <Text layoutX="312.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Explore" textAlignment="CENTER"
+          wrappingWidth="69.35809346827881">
         <font>
-            <Font name="Apple LiGothic Medium" size="12.0" />
+            <Font name="Apple LiGothic Medium" size="12.0"/>
         </font>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </Text>
-    <Text layoutX="369.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product" textAlignment="CENTER" wrappingWidth="69.35809346827881">
+    <Text layoutX="369.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product" textAlignment="CENTER"
+          wrappingWidth="69.35809346827881">
         <font>
-            <Font name="Apple LiGothic Medium" size="12.0" />
+            <Font name="Apple LiGothic Medium" size="12.0"/>
         </font>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </Text>
-    <Text layoutX="429.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Social" textAlignment="CENTER" wrappingWidth="69.35809346827881">
+    <Text layoutX="429.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Social" textAlignment="CENTER"
+          wrappingWidth="69.35809346827881">
         <font>
-            <Font name="Apple LiGothic Medium" size="12.0" />
+            <Font name="Apple LiGothic Medium" size="12.0"/>
         </font>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </Text>
-    <Text layoutX="262.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Us" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="262.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Us" textAlignment="CENTER"
+          wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="256.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blog" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="256.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blog" textAlignment="CENTER"
+          wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="264.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Us" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="264.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Us"
+          textAlignment="CENTER" wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="318.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Docs" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="318.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Docs" textAlignment="CENTER"
+          wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="320.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pricing" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="320.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pricing" textAlignment="CENTER"
+          wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="324.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="324.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources" textAlignment="CENTER"
+          wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="384.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fabric Colths" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="384.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fabric Colths"
+          textAlignment="CENTER" wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="387.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branderd Ware" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="387.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branderd Ware"
+          textAlignment="CENTER" wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="380.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connected" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="380.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connected" textAlignment="CENTER"
+          wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="444.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FaceBook" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="444.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FaceBook" textAlignment="CENTER"
+          wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="445.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instergran" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="445.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instergran"
+          textAlignment="CENTER" wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Text layoutX="443.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linkedin" textAlignment="CENTER" wrappingWidth="39.140838829606935">
+    <Text layoutX="443.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linkedin" textAlignment="CENTER"
+          wrappingWidth="39.140838829606935">
         <font>
-            <Font name="Apple LiGothic Medium" size="7.0" />
+            <Font name="Apple LiGothic Medium" size="7.0"/>
         </font>
     </Text>
-    <Separator layoutX="498.0" layoutY="449.0" orientation="VERTICAL" prefHeight="43.0" prefWidth="2.0" />
-    <Separator layoutX="128.0" layoutY="450.0" orientation="VERTICAL" prefHeight="43.0" prefWidth="2.0" />
-    <ImageView fitHeight="433.0" fitWidth="300.0" layoutX="-31.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../img/pexels-sidneimaia-3489129.jpg" />
+    <Separator layoutX="498.0" layoutY="449.0" orientation="VERTICAL" prefHeight="43.0" prefWidth="2.0"/>
+    <Separator layoutX="128.0" layoutY="450.0" orientation="VERTICAL" prefHeight="43.0" prefWidth="2.0"/>
+    <ImageView fitHeight="433.0" fitWidth="300.0" layoutX="-31.0" layoutY="-17.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../img/pexels-sidneimaia-3489129.jpg"/>
     </ImageView>
-    <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1f93ff00" height="304.0" layoutX="270.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="336.0" />
-    <Text layoutX="359.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify" wrappingWidth="162.0181726512743">
+    <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1f93ff00" height="304.0" layoutX="270.0" layoutY="115.0"
+               stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="336.0"/>
+    <Text layoutX="359.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothify"
+          wrappingWidth="162.0181726512743">
         <font>
-            <Font name="Apple LiGothic Medium" size="53.0" />
+            <Font name="Apple LiGothic Medium" size="53.0"/>
         </font>
         <fill>
             <RadialGradient centerX="0.4113573407202216" centerY="0.9418052256532066" radius="0.869942196531792">
                 <stops>
                     <Stop>
                         <color>
-                            <Color red="0.08552631735801697" green="0.15789473056793213" blue="0.1361842155456543" />
+                            <Color red="0.08552631735801697" green="0.15789473056793213" blue="0.1361842155456543"/>
                         </color>
                     </Stop>
                     <Stop offset="1.0">
                         <color>
-                            <Color red="0.2565789520740509" green="0.7105262875556946" blue="0.6348684430122375" />
+                            <Color red="0.2565789520740509" green="0.7105262875556946" blue="0.6348684430122375"/>
                         </color>
                     </Stop>
                 </stops>
             </RadialGradient>
         </fill>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </Text>
-    <Text layoutX="419.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branderd Wear" wrappingWidth="68.37702885244619">
+    <Text layoutX="419.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branderd Wear"
+          wrappingWidth="68.37702885244619">
         <font>
-            <Font name="Apple LiGothic Medium" size="10.0" />
+            <Font name="Apple LiGothic Medium" size="10.0"/>
         </font>
         <fill>
             <LinearGradient endX="0.3681710213776722" startX="0.6864608076009502" startY="0.6888361045130641">
                 <stops>
                     <Stop>
                         <color>
-                            <Color red="0.2186281681060791" green="0.4868420958518982" blue="0.406377911567688" />
+                            <Color red="0.2186281681060791" green="0.4868420958518982" blue="0.406377911567688"/>
                         </color>
                     </Stop>
                     <Stop offset="1.0">
                         <color>
-                            <Color red="0.22782650589942932" green="0.44736841320991516" blue="0.41077810525894165" />
+                            <Color red="0.22782650589942932" green="0.44736841320991516" blue="0.41077810525894165"/>
                         </color>
                     </Stop>
                 </stops>
             </LinearGradient>
         </fill>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </Text>
-    <JFXButton fx:id="btnSignIn" layoutX="310.0" layoutY="297.0" onAction="#btnSignInOnAction" prefHeight="29.0" prefWidth="270.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Sign in" textFill="WHITE">
+    <JFXButton fx:id="btnSignIn" layoutX="310.0" layoutY="297.0" onAction="#btnSignInOnAction" prefHeight="29.0"
+               prefWidth="270.0" style="-fx-background-color: #3395FF; -fx-background-radius: 10px;" text="Sign in"
+               textFill="WHITE">
         <font>
-            <Font name="Apple LiGothic Medium" size="20.0" />
+            <Font name="Apple LiGothic Medium" size="20.0"/>
         </font>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </JFXButton>
-    <Text layoutX="286.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in " wrappingWidth="132.7619171142578">
+    <Text layoutX="286.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in "
+          wrappingWidth="132.7619171142578">
         <font>
-            <Font name="Apple LiGothic Medium" size="41.0" />
+            <Font name="Apple LiGothic Medium" size="41.0"/>
         </font>
     </Text>
-    <JFXTextField fx:id="txtUserName" cache="true" layoutX="310.0" layoutY="187.0" prefHeight="22.0" prefWidth="270.0" promptText="Enter Username">
+    <JFXTextField fx:id="txtUserName" cache="true" layoutX="310.0" layoutY="187.0" prefHeight="22.0" prefWidth="270.0"
+                  promptText="Enter Username">
         <font>
-            <Font name="Apple LiGothic Medium" size="15.0" />
+            <Font name="Apple LiGothic Medium" size="15.0"/>
         </font>
     </JFXTextField>
-    <Text layoutX="328.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By Sign in, you agree to Clothify's Conditions of Use and Privacy Notice." textAlignment="CENTER" wrappingWidth="234.88234907046456">
+    <Text layoutX="328.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="By Sign in, you agree to Clothify's Conditions of Use and Privacy Notice." textAlignment="CENTER"
+          wrappingWidth="234.88234907046456">
         <font>
-            <Font name="Apple LiGothic Medium" size="10.0" />
+            <Font name="Apple LiGothic Medium" size="10.0"/>
         </font>
     </Text>
-    <JFXPasswordField fx:id="txtPassword" layoutX="310.0" layoutY="229.0" prefHeight="12.0" prefWidth="270.0" promptText="Enter you password">
+    <JFXPasswordField fx:id="txtPassword" layoutX="310.0" layoutY="229.0" prefHeight="12.0" prefWidth="270.0"
+                      promptText="Enter you password">
         <font>
-            <Font name="Apple LiGothic Medium" size="15.0" />
+            <Font name="Apple LiGothic Medium" size="15.0"/>
         </font>
     </JFXPasswordField>
-    <JFXCheckBox fx:id="cbShowPassword" checkedColor="#3679e4" graphicTextGap="0.0" layoutX="310.0" layoutY="269.0" onAction="#cbShowPasswordOnAction" text="Show Password">
+    <JFXCheckBox fx:id="cbShowPassword" checkedColor="#3679e4" graphicTextGap="0.0" layoutX="310.0" layoutY="269.0"
+                 onAction="#cbShowPasswordOnAction" text="Show Password">
         <font>
-            <Font name="Apple LiGothic Medium" size="11.0" />
+            <Font name="Apple LiGothic Medium" size="11.0"/>
         </font>
     </JFXCheckBox>
-    <Separator layoutX="486.0" layoutY="375.0" prefHeight="12.0" prefWidth="87.0" />
-    <Separator layoutX="313.0" layoutY="375.0" prefHeight="12.0" prefWidth="94.0" />
-    <Hyperlink fx:id="linkForgotPassword" layoutX="511.0" layoutY="270.0" onAction="#ForgotPasswordOnAction" text="Forgot Password" textFill="RED">
+    <Separator layoutX="486.0" layoutY="375.0" prefHeight="12.0" prefWidth="87.0"/>
+    <Separator layoutX="313.0" layoutY="375.0" prefHeight="12.0" prefWidth="94.0"/>
+    <Hyperlink fx:id="linkForgotPassword" layoutX="511.0" layoutY="270.0" onAction="#ForgotPasswordOnAction"
+               text="Forgot Password" textFill="RED">
         <font>
-            <Font name="Apple LiGothic Medium" size="10.0" />
+            <Font name="Apple LiGothic Medium" size="10.0"/>
         </font>
     </Hyperlink>
-    <JFXButton layoutX="392.0" layoutY="390.0" onAction="#SignUpOnAction" prefHeight="18.0" prefWidth="106.0" style="-fx-background-color: gray; -fx-background-radius: 10px;" text="Create New Account" textFill="WHITE">
+    <JFXButton layoutX="392.0" layoutY="390.0" onAction="#SignUpOnAction" prefHeight="18.0" prefWidth="106.0"
+               style="-fx-background-color: gray; -fx-background-radius: 10px;" text="Create New Account"
+               textFill="WHITE">
         <font>
-            <Font name="Apple LiGothic Medium" size="11.0" />
+            <Font name="Apple LiGothic Medium" size="11.0"/>
         </font>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </JFXButton>
-    <Text layoutX="407.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New To Clothify?" textAlignment="CENTER" wrappingWidth="79.14083882960693">
+    <Text layoutX="407.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New To Clothify?"
+          textAlignment="CENTER" wrappingWidth="79.14083882960693">
         <font>
-            <Font name="Apple LiGothic Medium" size="9.0" />
+            <Font name="Apple LiGothic Medium" size="9.0"/>
         </font>
     </Text>
 </AnchorPane>

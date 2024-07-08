@@ -7,7 +7,6 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.example.bo.BoFactory;
@@ -16,7 +15,8 @@ import org.example.util.BoType;
 
 import java.io.IOException;
 
-public class LoginFormController {
+public class LoginFormController  {
+
 
     @FXML
     private JFXButton btnSignIn;
@@ -41,7 +41,7 @@ public class LoginFormController {
     private final ScenseSwitchController sceneSwitch;
 
 
-    public LoginFormController(Hyperlink linkForgotPassword, TextField txtShowPassword) {
+    public LoginFormController() {
         this.userBo = BoFactory.getInstance().getBo(BoType.USER);
         this.sceneSwitch = ScenseSwitchController.getInstance();
     }
@@ -75,7 +75,6 @@ public class LoginFormController {
 
     @FXML
     void cbShowPasswordOnAction(ActionEvent event) {
-
         if (cbShowPassword.isSelected()){
             txtShowPassword.setText(txtPassword.getText());
             txtPassword.setVisible(false);
